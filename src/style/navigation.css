@@ -1,0 +1,32 @@
+/* Nav styling here, to put in nav.css   */
+nav > div
+{
+	/* border: 3px solid pink; */
+	box-sizing: border-box;
+}
+
+nav
+{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 14px;
+}
+
+#Projects > div, #Notes > div
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#Projects > ul, #Notes > ul
+{
+	margin-top : -5px;
+}
+
+#Home > ul
+{
+	margin-top : -3px;
+}

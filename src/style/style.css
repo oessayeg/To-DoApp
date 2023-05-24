@@ -1,5 +1,40 @@
 body
 {
 	margin: 0;
-	padding: 0;
+	border: 4px solid green;
+	box-sizing: border-box;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	height: 100vh;
+}
+
+li
+{
+	list-style-type: none;
+}
+
+button
+{
+	cursor: pointer;
+}
+
+header
+{
+	border: 1px solid blue;
+	box-sizing: border-box;
+	margin: 5px;
+}
+
+main
+{
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	gap: 3px;
+	margin: 5px;
+}
+
+nav, article
+{
+	border: 1px solid blue;
+	box-sizing: border-box;
 }
