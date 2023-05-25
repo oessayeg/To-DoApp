@@ -1,4 +1,8 @@
 import './style/style.css';
 import './style/navigation.css';
+import addProjectHandler from './modules/addProjectButton.js';
+// import project from './modules/project.js'
 
-console.log("Hello World !");
+let projects = [];
+
+addProjectHandler(projects);
