@@ -37,4 +37,16 @@ nav, article
 {
 	border: 1px solid blue;
 	box-sizing: border-box;
+	padding: 30px;
+}
+
+#Projects > ul > li:hover
+{
+	color: red;
+	cursor: pointer;
+}
+
+#Projects > ul > li:active
+{
+	opacity: 0.5;
 }

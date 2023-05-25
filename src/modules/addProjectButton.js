@@ -1,3 +1,4 @@
+import displayProject from './displayProject.js';
 import project from './project.js'
 
 export default function newProjectButton(projectArray)
@@ -62,13 +63,15 @@ function submitEvent(submitButton, projectArray)
 		const newList = document.createElement("li");
 
 		newList.textContent = inputField.value;
-		projectArray.push({
+		let obj = {
 			name: inputField.value,
 			tasks: []
-		})
+		}
+		projectArray.push(obj);
 		uList.lastChild.remove();
 		uList.lastChild.remove();
 		addProjectButton.className = "";
 		uList.appendChild(newList);
+		displayProject(obj, newList, projectArray);
 	})
 }
