@@ -28,8 +28,7 @@ header
 main
 {
 	display: grid;
-	/* grid-template-columns: 1.5fr 4fr; */
-	grid-template-columns: minmax(250px, 300px) 1fr;
+	grid-template-columns: auto 1fr;
 	gap: 3px;
 	margin: 5px;
 }
