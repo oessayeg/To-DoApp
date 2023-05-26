@@ -1,6 +1,5 @@
 nav > div
 {
-	/* border: 3px solid pink; */
 	box-sizing: border-box;
 }
 
@@ -12,7 +11,7 @@ nav
 	padding: 14px;
 }
 
-#Projects > div, #Notes > div
+#Projects > div /* Notes later */
 {
 	display: flex;
 	flex-direction: row;
@@ -20,12 +19,18 @@ nav
 	align-items: center;
 }
 
-#Projects > ul, #Notes > ul
+#Home > h2
 {
-	margin-top : -5px;
+	border-bottom: 3px solid black;
 }
 
-#Home > ul
+#project-title
 {
-	margin-top : -3px;
+	border-bottom: 3px solid black;
+	height: 28px;
+}
+
+#project-list
+{
+	display: block;
 }

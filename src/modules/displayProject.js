@@ -1,3 +1,5 @@
+import taskForm from "./taskForm";
+
 export default function displayProject(project, list, projectArray)
 {
 	list.addEventListener("click", (e) =>
@@ -9,12 +11,20 @@ export default function displayProject(project, list, projectArray)
 			article.firstChild.remove();
 		title.textContent = project.name;
 		article.appendChild(title);
-		// Here I should display all tasks
-		addTaskButton(project, projectArray);
+
+		for (let proj of project.tasks)
+		{
+			const newP = document.createElement("p");
+
+			newP.textContent = proj.title;
+			article.appendChild(newP);
+		}
+		addTaskButton(project);
+		addTaskEvent(project);
 	})
 }
 
-function addTaskButton(project, projectArray)
+export function addTaskButton(project)
 {
 	const addNoteButton = document.createElement("button");
 	const article = document.querySelector("article");
@@ -22,11 +32,15 @@ function addTaskButton(project, projectArray)
 	addNoteButton.setAttribute("id", "task-button");
 	addNoteButton.textContent = "New task";
 	article.appendChild(addNoteButton);
+}
+
+export function addTaskEvent(project)
+{
+	const addNoteButton = document.querySelector("#task-button");
+
 	addNoteButton.addEventListener("click", (e) =>
 	{
-		let currentProject;
-		
-		currentProject = projectArray.find(element => element.name === project.name);
-
+		addNoteButton.remove();
+		taskForm(project);
 	})
 }
