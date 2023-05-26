@@ -7,9 +7,11 @@ export default function displayProject(project, list, projectArray)
 		const title = document.createElement("h2");
 		const article = document.querySelector("article");
 
+		title.setAttribute("id", "project-title-show");
 		while (article.firstChild)
 			article.firstChild.remove();
 		title.textContent = project.name;
+		// title.style.fontSize = "55px";
 		article.appendChild(title);
 
 		for (let proj of project.tasks)

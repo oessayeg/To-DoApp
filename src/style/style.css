@@ -1,8 +1,6 @@
 body
 {
 	margin: 0;
-	border: 4px solid green;
-	box-sizing: border-box;
 	display: grid;
 	grid-template-rows: auto 1fr;
 	height: 100vh;
@@ -11,6 +9,8 @@ body
 li
 {
 	list-style-type: none;
+	font-size: 23px;
+	line-height: 37px;
 }
 
 button
@@ -28,7 +28,8 @@ header
 main
 {
 	display: grid;
-	grid-template-columns: 1.5fr 4fr;
+	/* grid-template-columns: 1.5fr 4fr; */
+	grid-template-columns: minmax(250px, 300px) 1fr;
 	gap: 3px;
 	margin: 5px;
 }
@@ -37,16 +38,22 @@ nav, article
 {
 	border: 1px solid blue;
 	box-sizing: border-box;
-	padding: 30px;
 }
 
-#Projects > ul > li:hover
+li:hover
 {
-	color: red;
 	cursor: pointer;
+	border-radius: 10px;
+	background-color: rgb(201, 201, 201);
 }
 
 #Projects > ul > li:active
 {
 	opacity: 0.5;
+}
+
+article
+{
+	padding-left: 60px;
+	padding-right: 60px;
 }

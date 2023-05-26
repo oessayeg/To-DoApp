@@ -7,11 +7,13 @@ nav
 {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
-	padding: 14px;
+	gap: 20px;
+	padding-right: 14px;
+	padding-left: 14px;
+	width: 300px;
 }
 
-#Projects > div /* Notes later */
+#projects-title
 {
 	display: flex;
 	flex-direction: row;
@@ -21,16 +23,53 @@ nav
 
 #Home > h2
 {
-	border-bottom: 3px solid black;
+	border-bottom: 2px solid black;
 }
 
-#project-title
+#Home > h2, #projects-title > h2
 {
-	border-bottom: 3px solid black;
+	font-size: 30px;
+}
+
+#projects-title
+{
+	height : 41px;
+	border-bottom: 2px solid black;
+}
+
+#project-creator
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+#project-creator > div
+{
+	width: 100%;
+	text-align: center;
+}
+
+#submit-cancel-project
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+#projectName
+{
+	width: 68%;
+	font-size: 18px;
 	height: 28px;
 }
 
-#project-list
+#submit-cancel-project > button
 {
-	display: block;
+	/* font-size: 17px; */
+	padding-left: 8px;
+	padding-right: 8px;
 }
