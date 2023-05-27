@@ -42,10 +42,6 @@
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-}
-
-#task-block
-{
 	border: 1px solid black;	
 	border-radius: 5px;
 	box-sizing: border-box;
@@ -110,7 +106,7 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 20px;
-	margin-top: -18px;
+	margin-top: -12px;
 }
 
 #task-date
@@ -130,4 +126,23 @@ input.task-check
 	width: 20px;
 	height: 20px;
 	cursor: pointer;
+}
+
+.remove-task
+{
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.remove-task:hover
+{
+	background-color: rgb(226, 225, 225);
+	border-radius: 2px;
+}
+
+#task-date > h3
+{
+	margin: 0;
 }
