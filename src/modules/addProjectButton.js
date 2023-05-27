@@ -24,10 +24,9 @@ export default function newProjectButton(projectArray)
 			newField.type = "text";
 			newField.placeholder = "Project name";
 			newField.minLength = 1;
-			newField.maxLength = 20;
+			newField.maxLength = 19;
 			inputDiv.appendChild(newField);
 			newProjectBlock.appendChild(inputDiv);
-			newField.focus();
 			button.className = "selected";
 			
 			submitDiv.setAttribute("id", "submit-cancel-project");
@@ -35,8 +34,9 @@ export default function newProjectButton(projectArray)
 			submitDiv.appendChild(cancel);
 			newProjectBlock.appendChild(submitDiv);
 			if (projectArray.length > 0)
-				newProjectBlock.style.marginTop = "-15px";
+			newProjectBlock.style.marginTop = "-15px";
 			projectList.appendChild(newProjectBlock);
+			newField.focus();
 			cancelEvent(cancel, projectArray);
 			submitEvent(submit, projectArray);
 

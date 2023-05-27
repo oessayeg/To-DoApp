@@ -3,28 +3,85 @@ import { addTaskButton, addTaskEvent } from "./displayProject";
 export default function taskForm(project)
 {
 	const article = document.querySelector("article");
-	const divForm = document.createElement("div");
-	const taskTitle = document.createElement("input");
-	const taskDueDate = document.createElement("input");
-	const titleLabel = document.createElement("label");
-	const dueDateLabel = document.createElement("label");
 
-	divForm.setAttribute("id", "new-task-form");
+	// Block that's gonna contain all the task infos
+	const taskBlock = document.createElement("div");
+
+	taskBlock.setAttribute("id", "task-block");
+	// Task title
+	const taskTitle = document.createElement("input");
+	const titleLabel = document.createElement("label");
+	const titleBlock = document.createElement("div");
+	
 	taskTitle.type = "text";
+	titleBlock.setAttribute("id", "title-block");
 	taskTitle.setAttribute("id", "task-title");
-	taskDueDate.type = "date";
-	taskDueDate.setAttribute("id", "task-due-date");
 	titleLabel.setAttribute("for", "task-title");
 	titleLabel.innerHTML = "Task<br>";
+	
+	titleBlock.appendChild(titleLabel);
+	titleBlock.appendChild(taskTitle);
+	
+	// Due date
+	const taskDueDate = document.createElement("input");
+	const dueDateLabel = document.createElement("label");
+	const datePriorityBlock = document.createElement("div");
+	const dateBlock = document.createElement("div");
+
+	dateBlock.setAttribute("id", "due-date");
+	datePriorityBlock.setAttribute("id", "date-priority");
+	taskDueDate.type = "date";
+	taskDueDate.setAttribute("id", "task-due-date");
 	dueDateLabel.setAttribute("for", "task-due-date");
 	dueDateLabel.innerHTML = "Due date<br>";
+	dateBlock.appendChild(dueDateLabel);
+	dateBlock.appendChild(taskDueDate);
+	datePriorityBlock.appendChild(dateBlock);
 
-	divForm.appendChild(titleLabel);
-	divForm.appendChild(taskTitle);
-	article.appendChild(divForm);
-	// article.appendChild(dueDateLabel);
-	// article.appendChild(taskDueDate);
-	addAndCancelButtons(project);
+	// Priority
+	const priorityBlock = document.createElement("div");
+	const priorityTitle = document.createElement("label");
+	const lowButton = document.createElement("button");
+	const mediumButton = document.createElement("button");
+	const highButton = document.createElement("button");
+	const allButtons = document.createElement("div");
+
+	allButtons.setAttribute("id", "priority-choice")
+	// priorityTitle.textContent = "Priority : ";
+	priorityTitle.setAttribute("for", "priority-choice");
+	priorityTitle.textContent = "Priority : ";
+	priorityBlock.setAttribute("id", "priority-block");
+	lowButton.textContent = "Low";
+	mediumButton.textContent = "medium";
+	highButton.textContent = "high";
+	allButtons.appendChild(lowButton);
+	allButtons.appendChild(mediumButton);
+	allButtons.appendChild(highButton);
+
+	priorityBlock.appendChild(priorityTitle);
+	priorityBlock.appendChild(allButtons);
+
+
+	datePriorityBlock.appendChild(priorityBlock);
+
+	// 'Add' and 'Cancel' Button
+	const buttonBlock = document.createElement("div");
+	const addButton = document.createElement("button");
+	const cancelButton = document.createElement("button");
+
+	buttonBlock.setAttribute("id", "add-cancel-task");
+	addButton.textContent = "Add";
+	cancelButton.textContent = "Cancel";
+	buttonBlock.appendChild(addButton);
+	buttonBlock.appendChild(cancelButton);
+
+	// Children to article
+	taskBlock.appendChild(titleBlock);
+	taskBlock.appendChild(datePriorityBlock);
+	taskBlock.appendChild(buttonBlock);
+	article.appendChild(taskBlock);
+
+
 }
 
 function addAndCancelButtons(project)
