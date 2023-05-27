@@ -1,5 +1,6 @@
 import { addTaskButton, addTaskEvent } from "./displayProject";
 import { cancelHandler, addHandler } from "./andCancelTask";
+import priorityButtonHandler from "./priorityButtons.js";
 
 export default function taskForm(project)
 {
@@ -9,8 +10,9 @@ export default function taskForm(project)
 	const taskBlock = document.createElement("div");
 
 	taskBlock.setAttribute("id", "task-block");
-	taskBlock.style.marginTop = "30px";
-	taskBlock.style.width = "80%";
+	if (project.tasks.length != 0)
+		taskBlock.style.marginTop = "30px";
+	taskBlock.style.width = "90%";
     taskBlock.style.alignSelf = "center";
 	// Task title
 	const taskTitle = document.createElement("input");
@@ -85,47 +87,51 @@ export default function taskForm(project)
 	taskBlock.appendChild(buttonBlock);
 	article.appendChild(taskBlock);
 
-	// Cancel button event
+	// Cancel and Add button event
 	cancelHandler(cancelButton, project);
 	addHandler(addButton, project);
+
+	// Priority buttons event
+	priorityButtonHandler();
+
 }
 
-function addAndCancelButtons(project)
-{
-	const divForm = document.querySelector("#new-task-form");
-	const addButton = document.createElement("button");
-	const cancelButton = document.createElement("button");
-	const taskTitle = document.querySelector("#task-title");
-	const article = document.querySelector("article");
+// function addAndCancelButtons(project)
+// {
+// 	const divForm = document.querySelector("#new-task-form");
+// 	const addButton = document.createElement("button");
+// 	const cancelButton = document.createElement("button");
+// 	const taskTitle = document.querySelector("#task-title");
+// 	const article = document.querySelector("article");
 
-	addButton.setAttribute("id", "add-task");
-	cancelButton.setAttribute("id", "cancel-task");
-	divForm.appendChild(addButton);
-	divForm.appendChild(cancelButton);
-	addButton.textContent = "Add";
-	cancelButton.textContent = "Cancel";
-	cancelButton.addEventListener("click", (e) =>
-	{
-		divForm.remove();
-		addTaskButton();
-		addTaskEvent();
-	});
+// 	addButton.setAttribute("id", "add-task");
+// 	cancelButton.setAttribute("id", "cancel-task");
+// 	divForm.appendChild(addButton);
+// 	divForm.appendChild(cancelButton);
+// 	addButton.textContent = "Add";
+// 	cancelButton.textContent = "Cancel";
+// 	cancelButton.addEventListener("click", (e) =>
+// 	{
+// 		divForm.remove();
+// 		addTaskButton();
+// 		addTaskEvent();
+// 	});
 
-	addButton.addEventListener("click", (e) =>
-	{
-		const newElement = document.createElement("p");
+// 	addButton.addEventListener("click", (e) =>
+// 	{
+// 		const newElement = document.createElement("p");
 
-		let task = 
-		{
-			title : taskTitle.value,
-			dueDate : null
-		}
-		project.tasks.push(task);
-		divForm.remove();
-		newElement.textContent = task.title;
-		article.appendChild(newElement);
-		addTaskButton(project);
-		addTaskEvent(project);	
+// 		let task = 
+// 		{
+// 			title : taskTitle.value,
+// 			dueDate : null
+// 		}
+// 		project.tasks.push(task);
+// 		divForm.remove();
+// 		newElement.textContent = task.title;
+// 		article.appendChild(newElement);
+// 		addTaskButton(project);
+// 		addTaskEvent(project);	
 
-	});
-}
+// 	});
+// }

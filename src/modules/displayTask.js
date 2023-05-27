@@ -1,4 +1,4 @@
-export default function displayTask(task)
+export default function displayTask(task, project)
 {
 	const article = document.querySelector("article");
 	const taskDiv = document.createElement("div");
@@ -9,12 +9,13 @@ export default function displayTask(task)
 	const remove = document.createElement("p");
 
 	taskAndDate.setAttribute("id", "task-date");
-	taskDate.textContent = "29-05-2023";
+	taskDate.textContent = task.dueDate;
 	taskDiv.setAttribute("id", "task");
 	taskName.textContent = task.name;
 	checkBox.type = "checkbox";
 	checkBox.className = "task-check";
 	remove.textContent = "x";
+	remove.className = "remove-task";
 
 	taskAndDate.appendChild(taskName);
 	taskAndDate.appendChild(taskDate);
@@ -22,5 +23,17 @@ export default function displayTask(task)
 	taskDiv.appendChild(taskAndDate);
 	taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
-	// Add x button to remove task
+	
+	removeTaskEvent(remove, taskDiv, task, project);
+}
+
+function removeTaskEvent(button, taskDiv, task, project)
+{
+	button.addEventListener("click", (e) =>
+	{
+		taskDiv.remove();
+		console.log(project.tasks.filter(e => e.name != task.name));
+		project.tasks = project.tasks.filter(e => e.name != task.name);
+
+	});
 }

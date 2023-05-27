@@ -3,7 +3,8 @@ export default function isEmpty()
 	const taskName = document.querySelector("#task-title");
 	const date = document.querySelector("#task-due-date");
 	
-	if (document.querySelector(".task-warning") || document.querySelector(".date-warning"))
+	if (document.querySelector(".task-warning") || document.querySelector(".date-warning")
+		|| document.querySelector(".priority-warning"))
 		return true;
 	else if (!taskName.value)
 	{
@@ -24,7 +25,6 @@ export default function isEmpty()
 	}
 	else if (!date.value)
 	{
-		console.log("Here");
 		const dateWarning = document.createElement("p");
 		const dueDate = document.querySelector("#due-date");
 
@@ -39,6 +39,33 @@ export default function isEmpty()
 			dateWarning.remove();
 		})
 		return true;
+	}
+	else
+	{
+		const buttons = document.querySelectorAll("#priority-choice > button");
+
+		if (!buttons[0].className && !buttons[1].className && !buttons[2].className)
+		{
+			const priorityWarning = document.createElement("p");
+			const pBlock = document.querySelector("#priority-block");
+
+			priorityWarning.className = "priority-warning";
+			priorityWarning.textContent = "Please specify priority";
+			priorityWarning.style.color = "red";
+			priorityWarning.style.fontSize = "15px";
+			priorityWarning.style.margin = "0"; 
+			pBlock.appendChild(priorityWarning);
+			document.querySelector("#date-priority").style.alignItems = "normal";
+			buttons.forEach(button =>
+				{
+					button.addEventListener("click", (e) =>
+					{
+						priorityWarning.remove();
+						document.querySelector("#date-priority").style.alignItems = "center";
+					})
+				})
+			return true;
+		}
 	}
 	return false;
 }

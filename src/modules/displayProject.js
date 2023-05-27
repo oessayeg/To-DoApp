@@ -1,4 +1,5 @@
 import taskForm from "./taskForm";
+import displayTask from "./displayTask";
 
 export default function displayProject(project, list, projectArray)
 {
@@ -11,16 +12,9 @@ export default function displayProject(project, list, projectArray)
 		while (article.firstChild)
 			article.firstChild.remove();
 		title.textContent = project.name;
-		// title.style.fontSize = "55px";
 		article.appendChild(title);
-
-		for (let proj of project.tasks)
-		{
-			const newP = document.createElement("p");
-
-			newP.textContent = proj.title;
-			article.appendChild(newP);
-		}
+		
+		project.tasks.forEach(element => displayTask(element, project));
 		addTaskButton(project);
 		addTaskEvent(project);
 	})
@@ -34,7 +28,8 @@ export function addTaskButton(project)
 	addTaskButton.setAttribute("id", "task-button");
 	addTaskButton.innerHTML = "+&nbsp&nbsp&nbspAdd a task";
 	addTaskButton.style.fontSize = "24px";
-	addTaskButton.style.textAlign = "center";
+	addTaskButton.style.textAlign = "right";
+	addTaskButton.style.paddingRight = "50px";
 	article.appendChild(addTaskButton);
 }
 

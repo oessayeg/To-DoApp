@@ -15,6 +15,7 @@ export function cancelHandler(cancelButton, project)
 export function addHandler(addButton, project)
 {
 	const taskName = document.querySelector("#task-title");
+	const priority = document.querySelectorAll("#priority-choice > button");
 
 	addButton.addEventListener("click", (e) =>
 	{
@@ -23,12 +24,12 @@ export function addHandler(addButton, project)
 			let task = 
 			{
 				name : taskName.value,
-				dueDate: null,
-				priority: null
+				dueDate: document.querySelector("#task-due-date").value,
+				priority: (Array.from(priority)).find(element => element.className).className
 			};
 			project.tasks.push(task);
 			document.querySelector("#task-block").remove();
-			displayTask(task);
+			displayTask(task, project);
 			addTaskButton(project);
 			addTaskEvent(project);
 		}
