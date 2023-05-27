@@ -1,5 +1,6 @@
-import { addTaskButton, addTaskEvent } from "./displayProject";
-import displayTask from "./displayTask";
+import { addTaskButton, addTaskEvent } from "./displayProject.js";
+import displayTask from "./displayTask.js";
+import isEmpty from "./taskFormCheck.js"
 
 export function cancelHandler(cancelButton, project)
 {
@@ -17,17 +18,19 @@ export function addHandler(addButton, project)
 
 	addButton.addEventListener("click", (e) =>
 	{
-		let task = 
+		if (!isEmpty())
 		{
-			name : taskName.value,
-			dueDate: null,
-			priority: null
-		};
-		project.tasks.push(task);
-		document.querySelector("#task-block").remove();
-		console.log(project);
-		displayTask(task);
-		addTaskButton(project);
-		addTaskEvent(project);
+			let task = 
+			{
+				name : taskName.value,
+				dueDate: null,
+				priority: null
+			};
+			project.tasks.push(task);
+			document.querySelector("#task-block").remove();
+			displayTask(task);
+			addTaskButton(project);
+			addTaskEvent(project);
+		}
 	})
 }
