@@ -20,7 +20,7 @@ button
 
 header
 {
-	border: 1px solid blue;
+	border: 1px solid grey;
 	box-sizing: border-box;
 	margin: 5px;
 }
@@ -35,7 +35,7 @@ main
 
 nav, article
 {
-	border: 1px solid blue;
+	border: 1px solid grey;
 	box-sizing: border-box;
 }
 
@@ -55,4 +55,7 @@ article
 {
 	padding-left: 60px;
 	padding-right: 60px;
+	display: flex;
+	flex-direction: column;
+	/* gap: 10px; */
 }

@@ -1,5 +1,6 @@
 import { addTaskButton, addTaskEvent } from "./displayProject";
 import { cancelHandler, addHandler } from "./andCancelTask";
+
 export default function taskForm(project)
 {
 	const article = document.querySelector("article");
@@ -8,6 +9,9 @@ export default function taskForm(project)
 	const taskBlock = document.createElement("div");
 
 	taskBlock.setAttribute("id", "task-block");
+	taskBlock.style.marginTop = "30px";
+	taskBlock.style.width = "80%";
+    taskBlock.style.alignSelf = "center";
 	// Task title
 	const taskTitle = document.createElement("input");
 	const titleLabel = document.createElement("label");
@@ -82,8 +86,8 @@ export default function taskForm(project)
 	article.appendChild(taskBlock);
 
 	// Cancel button event
-	cancelHandler(cancelButton);
-	// addHandler(addButton, project);
+	cancelHandler(cancelButton, project);
+	addHandler(addButton, project);
 }
 
 function addAndCancelButtons(project)
@@ -116,7 +120,6 @@ function addAndCancelButtons(project)
 			title : taskTitle.value,
 			dueDate : null
 		}
-		console.log(project.tasks);
 		project.tasks.push(task);
 		divForm.remove();
 		newElement.textContent = task.title;
