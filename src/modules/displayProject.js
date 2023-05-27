@@ -28,12 +28,14 @@ export default function displayProject(project, list, projectArray)
 
 export function addTaskButton(project)
 {
-	const addNoteButton = document.createElement("button");
+	const addTaskButton = document.createElement("h3");
 	const article = document.querySelector("article");
 
-	addNoteButton.setAttribute("id", "task-button");
-	addNoteButton.textContent = "New task";
-	article.appendChild(addNoteButton);
+	addTaskButton.setAttribute("id", "task-button");
+	addTaskButton.innerHTML = "+&nbsp&nbsp&nbspAdd a task";
+	addTaskButton.style.fontSize = "24px";
+	addTaskButton.style.textAlign = "center";
+	article.appendChild(addTaskButton);
 }
 
 export function addTaskEvent(project)

@@ -1,5 +1,5 @@
 import { addTaskButton, addTaskEvent } from "./displayProject";
-
+import { cancelHandler, addHandler } from "./andCancelTask";
 export default function taskForm(project)
 {
 	const article = document.querySelector("article");
@@ -81,7 +81,9 @@ export default function taskForm(project)
 	taskBlock.appendChild(buttonBlock);
 	article.appendChild(taskBlock);
 
-
+	// Cancel button event
+	cancelHandler(cancelButton);
+	// addHandler(addButton, project);
 }
 
 function addAndCancelButtons(project)
