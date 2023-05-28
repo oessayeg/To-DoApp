@@ -18,32 +18,11 @@ button
 	cursor: pointer;
 }
 
-header
-{
-	border: 1px solid grey;
-	box-sizing: border-box;
-	margin: 5px;
-}
-
 main
 {
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 3px;
-	margin: 5px;
-}
-
-nav, article
-{
-	border: 1px solid grey;
-	box-sizing: border-box;
-}
-
-li:hover
-{
-	cursor: pointer;
-	border-radius: 10px;
-	background-color: rgb(201, 201, 201);
 }
 
 #Projects > ul > li:active
@@ -57,5 +36,11 @@ article
 	padding-right: 60px;
 	display: flex;
 	flex-direction: column;
-	/* gap: 10px; */
+}
+
+ul
+{
+	padding-left: 23px;
+	margin-top: 12px;
+	margin-bottom: 12px;
 }

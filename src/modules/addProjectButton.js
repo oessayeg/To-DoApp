@@ -1,5 +1,5 @@
 import displayProject from './displayProject.js';
-import project from './project.js'
+import projectPng from '../images/t.png';
 
 export default function newProjectButton(projectArray)
 {
@@ -33,13 +33,12 @@ export default function newProjectButton(projectArray)
 			submitDiv.appendChild(submit);
 			submitDiv.appendChild(cancel);
 			newProjectBlock.appendChild(submitDiv);
-			if (projectArray.length > 0)
-			newProjectBlock.style.marginTop = "-15px";
+			if (projectArray.length == 0)
+			newProjectBlock.style.marginTop = "15px";
 			projectList.appendChild(newProjectBlock);
 			newField.focus();
 			cancelEvent(cancel, projectArray);
-			submitEvent(submit, projectArray);
-
+			submitProject(submit, projectArray);
 		}
 	})
 }
@@ -59,28 +58,37 @@ function cancelEvent(cancelButton, projectArray)
 	});
 }
 
-function submitEvent(submitButton, projectArray)
+function submitProject(submitButton, projectArray)
 {
-	const uList = document.querySelector("#Projects").children[1];
-	const addProjectButton = document.querySelector("#project-button");
-	const inputField = document.querySelector("#projectName");
 	const projectSection = document.querySelector("#Projects");
+	const inputField = document.querySelector("#projectName");
+	const addProjectButton = document.querySelector("#project-button");
 
 	submitButton.addEventListener("click", (e) =>
 	{
-		const newList = document.createElement("li");
+		const newProject = document.createElement("div");
+		const projectName = document.createElement("h4");
+		const projectIcon = document.createElement("img");
 
-		newList.textContent = inputField.value;
+		if (projectArray.length == 0)
+			newProject.style.marginTop = "15px";
+		newProject.id = "project-name-icon";
+		projectIcon.style.width = "27px";
+		projectIcon.style.height = "27px";
+		projectName.textContent = inputField.value;
+		projectIcon.src = projectPng;
 		let obj = {
 			name: inputField.value,
 			tasks: []
 		}
 		projectArray.push(obj);
+		newProject.appendChild(projectIcon);
+		newProject.appendChild(projectName);
 		while (projectSection.lastChild.hasChildNodes())
 			projectSection.lastChild.firstChild.remove();
 		projectSection.lastChild.remove();
+		projectSection.appendChild(newProject);
 		addProjectButton.className = "";
-		uList.appendChild(newList);
-		displayProject(obj, newList, projectArray);
-	})
+		displayProject(obj, newProject, projectArray);
+	});
 }

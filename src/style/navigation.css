@@ -7,10 +7,11 @@ nav
 {
 	display: flex;
 	flex-direction: column;
-	gap: 12px;
+	gap: 20px;
 	padding-right: 14px;
 	padding-left: 14px;
-	width: 300px;
+	width: 260px;
+	border-right: 3px solid black;
 }
 
 #projects-title
@@ -24,6 +25,7 @@ nav
 #Home > h2
 {
 	border-bottom: 2px solid black;
+	margin-bottom: 0;
 }
 
 #Home > h2, #projects-title > h2
@@ -69,7 +71,56 @@ nav
 
 #submit-cancel-project > button
 {
-	/* font-size: 17px; */
 	padding-left: 8px;
 	padding-right: 8px;
+}
+
+#project-name-icon
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding-left: 22px;
+	height: 35px;
+}
+
+#project-name-icon:hover
+{
+	transform: scale(1.10);
+	cursor: pointer;
+	padding-left: 32px;
+}
+
+#project-name-icon > h4
+{
+	font-size: 20px;
+	font-weight: normal;
+}
+
+#Home > div
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+	padding-left: 22px;
+	height: 35px;
+}
+
+#all-tasks
+{
+	margin-top: 15px;
+}
+
+#Home > div > h3
+{
+	font-weight: normal;
+}
+
+#Home > div:hover
+{
+	transform: scale(1.18);
+	cursor: pointer;
+	padding-left: 38px;
 }

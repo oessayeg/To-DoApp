@@ -1,3 +1,8 @@
+/* article
+{
+	border-left: 3px solid black;
+} */
+
 #project-title-show
 {
 	font-size: 50px;
@@ -54,7 +59,6 @@
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	/* grid-template-columns: repeat(3, 1fr); */
 	gap: 10px;
 }
 
