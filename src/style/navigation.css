@@ -41,7 +41,7 @@ nav
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 8px;
+	gap: 7px;
 }
 
 #projectName
@@ -53,9 +53,9 @@ nav
 
 #submit-cancel-project > button
 {
-	padding-left: 26px;
-	padding-right: 26px;
-	height: 27px;
+	padding-left: 27px;
+	padding-right: 27px;
+	height: 21px;
 }
 
 #project-name-icon
@@ -108,20 +108,39 @@ nav
 	padding-left: 38px;
 }
 
-#project-button
+#add-button-icon
 {
-	cursor: pointer;
-	text-align: right;
-	margin-right: 20px;
+	display: flex;
+	flex: row;
+	align-items: center;
+	gap: 10px;
+	justify-content: center;
+	height: 35px;
+    margin-top: 6px;
+	width: 60%;
 }
 
-#project-button:hover
+
+#add-button-icon:hover
 {
 	transform: scale(1.10);
-	margin-right: 25px;
+	cursor: pointer;
 }
 
-/* #projectName:active
+#project-button
 {
-	border: 3px solid black;
-} */
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 8px;
+}
+
+#global-button-icon
+{
+	display: flex;
+	justify-content: right;
+}
+
+#add-button-icon:active
+{
+	opacity: 0.6;
+}

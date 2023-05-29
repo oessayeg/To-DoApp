@@ -6,7 +6,7 @@ import isProjectNameEmpty from './projectNameCheck.js';
 
 export default function newProjectButton(projectArray)
 {
-	const button = document.querySelector("#project-button");
+	const button = document.querySelector("#add-button-icon");
 	const projectList = document.querySelector("#Projects");
 	const newProjectBlock = document.createElement("div");
 
@@ -31,7 +31,6 @@ export default function newProjectButton(projectArray)
 		if (projectArray.length > 0)
 			newProjectBlock.style.marginTop = "8px";
 		newProjectBlock.appendChild(inputDiv);
-		button.className = "selected";
 		
 		submitDiv.setAttribute("id", "submit-cancel-project");
 		submitDiv.appendChild(submit);
@@ -56,7 +55,7 @@ function cancelEvent(cancelButton, projectArray)
 		while (projectSection.lastChild.hasChildNodes())
 			projectSection.lastChild.firstChild.remove();
 		projectSection.lastChild.remove();
-		putAddProjectButton();
+		putAddProjectButton(projectArray.length);
 		newProjectButton(projectArray);
 	});
 }
@@ -92,7 +91,7 @@ function submitProject(submitButton, projectArray)
 				projectSection.lastChild.firstChild.remove();
 			projectSection.lastChild.remove();
 			projectSection.appendChild(newProject);
-			putAddProjectButton();
+			putAddProjectButton(projectArray.length);
 			newProjectButton(projectArray);
 			displayProject(obj, newProject, projectArray);
 		}

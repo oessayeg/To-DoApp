@@ -13,7 +13,7 @@ import putAddProjectButton from './modules/projectAddButton.js';
 
 let projects = [];
 
-putAddProjectButton();
+putAddProjectButton(projects.length);
 addProjectHandler(projects);
 putHeader();
 putHomeNav();
