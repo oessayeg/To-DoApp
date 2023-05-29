@@ -9,9 +9,11 @@ import hideNavigation from './modules/hideNav';
 import addProjectHandler from './modules/addProjectButton.js';
 import putHeader from './modules/header';
 import putHomeNav from './modules/homeNav';
+import putAddProjectButton from './modules/projectAddButton.js';
 
 let projects = [];
 
+putAddProjectButton();
 addProjectHandler(projects);
 putHeader();
 putHomeNav();
