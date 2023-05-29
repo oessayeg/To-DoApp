@@ -14,7 +14,7 @@ export default function isProjectNameEmpty(inputField)
 			warning.style.margin = "0";
 			warning.style.marginLeft = "27px";
 			warning.style.marginTop = "2px";
-			warning.style.fontSize = "16px";
+			warning.style.fontSize = "15px";
 			block.appendChild(warning);
 			checkKeyboardType(inputField);
 		}

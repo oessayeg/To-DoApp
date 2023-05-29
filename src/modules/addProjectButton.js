@@ -20,7 +20,9 @@ export default function newProjectButton(projectArray)
 		const submit = document.createElement("button");
 		const cancel = document.createElement("button");
 
-		submit.textContent = "Submit";
+		submit.className = "submit-project";
+		cancel.className = "cancel-project";
+		submit.textContent = "Add";
 		cancel.textContent = "Cancel";
 		newField.setAttribute("id", "projectName");
 		newField.type = "text";

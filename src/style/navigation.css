@@ -47,14 +47,15 @@ nav
 #projectName
 {
 	width: 76%;
-	font-size: 18px;
-	height: 28px;
+	font-size: 16px;
+	height: 20px;
+	padding: 5px;
 }
 
 #submit-cancel-project > button
 {
-	padding-left: 27px;
-	padding-right: 27px;
+	padding-left: 29.5px;
+	padding-right: 29.5px;
 	height: 21px;
 }
 
@@ -143,4 +144,40 @@ nav
 #add-button-icon:active
 {
 	opacity: 0.6;
+}
+
+.submit-project
+{
+	background-color: rgb(0, 158, 0);
+	color: white;
+	border-radius: 5px;
+	border: 1px solid grey;
+	border: 1px solid white;
+	width: 102.5px;
+}
+
+.cancel-project
+{
+	background-color: rgb(252, 38, 38);
+	color: white;
+	border-radius: 5px;
+	border: 1px solid white;
+}
+
+.cancel-project:hover, .submit-project:hover
+{
+	transform: scale(1.04);
+}
+
+
+.cancel-project:active, .submit-project:active
+{
+	opacity: 0.8;
+}
+
+#projectName:focus
+{
+	outline: none;
+	border: 2px solid black;
+	border-radius: 3px;
 }
