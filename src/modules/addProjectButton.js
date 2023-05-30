@@ -1,8 +1,11 @@
 import displayProject from './displayProject.js';
 import projectPng from '../images/t.png';
 import putAddProjectButton from './projectAddButton.js';
-// import isEmpty from './taskFormCheck.js';
 import isProjectNameEmpty from './projectNameCheck.js';
+import deleteIcon from '../images/delete.png'
+import displayNameOfProjects from './displayProjectsName.js';
+
+// import isEmpty from './taskFormCheck.js';
 
 export default function newProjectButton(projectArray)
 {
@@ -13,7 +16,7 @@ export default function newProjectButton(projectArray)
 	newProjectBlock.setAttribute("id", "project-creator");
 	button.addEventListener("click", (e) => 
 	{
-		button.remove();
+		document.querySelector("#global-button-icon").remove();
 		const inputDiv = document.createElement("div");
 		const newField = document.createElement("input");
 		const submitDiv = document.createElement("div");
@@ -28,7 +31,7 @@ export default function newProjectButton(projectArray)
 		newField.type = "text";
 		newField.placeholder = "Project name";
 		newField.minLength = 1;
-		newField.maxLength = 19;
+		newField.maxLength = 17;
 		inputDiv.appendChild(newField);
 		if (projectArray.length > 0)
 			newProjectBlock.style.marginTop = "8px";
@@ -71,31 +74,48 @@ function submitProject(submitButton, projectArray)
 	{
 		if (!isProjectNameEmpty(inputField))
 		{
-			const newProject = document.createElement("div");
-			const projectName = document.createElement("h4");
-			const projectIcon = document.createElement("img");
-	
-			newProject.id = "project-name-icon";
-			if (projectArray.length == 0)
-				newProject.style.marginTop = "15px";
-			projectIcon.style.width = "27px";
-			projectIcon.style.height = "27px";
-			projectName.textContent = inputField.value;
-			projectIcon.src = projectPng;
 			let obj = {
 				name: inputField.value,
 				tasks: []
 			}
 			projectArray.push(obj);
-			newProject.appendChild(projectIcon);
-			newProject.appendChild(projectName);
-			while (projectSection.lastChild.hasChildNodes())
-				projectSection.lastChild.firstChild.remove();
-			projectSection.lastChild.remove();
-			projectSection.appendChild(newProject);
+			displayNameOfProjects(projectArray);
 			putAddProjectButton(projectArray.length);
 			newProjectButton(projectArray);
-			displayProject(obj, newProject, projectArray);
 		}
+	});
+}
+
+export function addDeleteProjectEvent(block, projectArray, objToFind)
+{
+	const removeIcon = document.createElement("img");
+
+	removeIcon.id = "remove-project-icon";
+	removeIcon.src = deleteIcon;
+	removeIcon.style.width = "10px";
+	removeIcon.style.height = "10px";
+
+	// Add delete icon when hovered
+	block.addEventListener("mouseover", (event) => 
+	{
+		block.appendChild(removeIcon);
+		removeIcon.addEventListener("click", (e) =>
+		{
+			let index = projectArray.indexOf(objToFind);
+			if (index >= 0)
+			{
+				projectArray.splice(index, 1);
+				displayNameOfProjects(projectArray);
+				putAddProjectButton(projectArray.length);
+				newProjectButton(projectArray);
+			}
+		});
+	});
+
+	// Remove delete icon when mouse leaves
+	block.addEventListener("mouseleave", (event) =>
+	{
+		if (document.querySelector("#remove-project-icon"))
+			document.querySelector("#remove-project-icon").remove();
 	});
 }
