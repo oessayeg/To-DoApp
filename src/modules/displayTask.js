@@ -32,8 +32,6 @@ function removeTaskEvent(button, taskDiv, task, project)
 	button.addEventListener("click", (e) =>
 	{
 		taskDiv.remove();
-		console.log(project.tasks.filter(e => e.name != task.name));
 		project.tasks = project.tasks.filter(e => e.name != task.name);
-
 	});
 }

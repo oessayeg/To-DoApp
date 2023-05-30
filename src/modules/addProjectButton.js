@@ -65,21 +65,15 @@ function cancelEvent(cancelButton, projectArray)
 
 function submitProject(submitButton, projectArray)
 {
-	const projectSection = document.querySelector("#Projects");
-	const inputField = document.querySelector("#projectName");
-
 	submitButton.addEventListener("click", (e) =>
 	{
-		if (!isProjectNameEmpty(inputField))
+		createAndDisplayProject(projectArray);
+	});
+	document.querySelector("#projectName").addEventListener("keydown", (e) =>
+	{
+		if (e.key === "Enter")
 		{
-			let obj = {
-				name: inputField.value,
-				tasks: []
-			}
-			projectArray.push(obj);
-			displayNameOfProjects(projectArray);
-			putAddProjectButton(projectArray.length);
-			newProjectButton(projectArray);
+			createAndDisplayProject(projectArray);
 		}
 	});
 }
@@ -116,4 +110,21 @@ export function addDeleteProjectEvent(block, projectArray, objToFind)
 		if (document.querySelector("#remove-project-icon"))
 			document.querySelector("#remove-project-icon").remove();
 	});
+}
+
+function createAndDisplayProject(projectArray)
+{
+	const inputField = document.querySelector("#projectName");
+
+	if (!isProjectNameEmpty(inputField))
+	{
+		let obj = {
+			name: inputField.value,
+			tasks: []
+		}
+		projectArray.push(obj);
+		displayNameOfProjects(projectArray);
+		putAddProjectButton(projectArray.length);
+		newProjectButton(projectArray);
+	}
 }

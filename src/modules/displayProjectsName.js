@@ -25,7 +25,6 @@ export default function displayNameOfProjects(projectArray)
 		newProject.appendChild(projectIcon);
 		newProject.appendChild(projectName);
 		projectSection.appendChild(newProject);
-		console.log(projectName.offsetHeight);
 		if (projectName.offsetHeight > 47 && projectArray.indexOf(project) > 0)
 		{
 			newProject.style.marginBottom = "20px";
@@ -33,7 +32,6 @@ export default function displayNameOfProjects(projectArray)
 		}
 		else if (projectName.offsetHeight > 47)
 		{
-			console.log("here");
 			newProject.style.marginTop = "30px";
 			newProject.style.marginBottom = "20px";
 		}
