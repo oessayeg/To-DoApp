@@ -8,7 +8,6 @@ export default function taskForm(project)
 
 	// Block that's gonna contain all the task infos
 	const taskBlock = document.createElement("div");
-
 	taskBlock.setAttribute("id", "task-block");
 	if (project.tasks.length != 0)
 		taskBlock.style.marginTop = "30px";
@@ -53,13 +52,15 @@ export default function taskForm(project)
 	const allButtons = document.createElement("div");
 
 	allButtons.setAttribute("id", "priority-choice")
-	// priorityTitle.textContent = "Priority : ";
 	priorityTitle.setAttribute("for", "priority-choice");
 	priorityTitle.textContent = "Priority : ";
 	priorityBlock.setAttribute("id", "priority-block");
 	lowButton.textContent = "Low";
-	mediumButton.textContent = "medium";
-	highButton.textContent = "high";
+	lowButton.id = "low";
+	mediumButton.textContent = "Medium";
+	mediumButton.id = "medium";
+	highButton.textContent = "High";
+	highButton.id = "high";
 	allButtons.appendChild(lowButton);
 	allButtons.appendChild(mediumButton);
 	allButtons.appendChild(highButton);
@@ -75,6 +76,8 @@ export default function taskForm(project)
 	const addButton = document.createElement("button");
 	const cancelButton = document.createElement("button");
 
+	addButton.id = "add-task-button";
+	cancelButton.id = "cancel-task-button";
 	buttonBlock.setAttribute("id", "add-cancel-task");
 	addButton.textContent = "Add";
 	cancelButton.textContent = "Cancel";
@@ -90,7 +93,7 @@ export default function taskForm(project)
 	// Cancel and Add button event
 	cancelHandler(cancelButton, project);
 	addHandler(addButton, project);
-
+	taskTitle.focus();
 	// Priority buttons event
 	priorityButtonHandler();
 
