@@ -7,6 +7,7 @@ export default function priorityButtonHandler()
 		button.addEventListener("mouseover", (e) => colorOnHover(button));
 		button.addEventListener("mouseleave", (e) =>
 		{
+			console.log("he");
 			if (!button.className)
 				colorOnLeave(button);
 		});
@@ -18,6 +19,7 @@ export default function priorityButtonHandler()
 				one.className = "";
 			})
 			colorOnHover(button);
+			button.className = button.textContent;
 		});
 	});
 }
@@ -31,7 +33,6 @@ function colorOnHover(button)
 		button.style.backgroundColor = "#FFA500";
 	else
 		button.style.backgroundColor = "#FF0000";
-	button.className = button.textContent;
 }
 
 function colorOnLeave(button)

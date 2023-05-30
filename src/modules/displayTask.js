@@ -24,6 +24,7 @@ export default function displayTask(task, project)
 	taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
 	
+	checkBoxTask(checkBox);
 	removeTaskEvent(remove, taskDiv, task, project);
 }
 
@@ -33,5 +34,17 @@ function removeTaskEvent(button, taskDiv, task, project)
 	{
 		taskDiv.remove();
 		project.tasks = project.tasks.filter(e => e.name != task.name);
+	});
+}
+
+function checkBoxTask(checkBox)
+{
+	checkBox.addEventListener("click", (e) =>
+	{
+		if (checkBox.checked)
+			checkBox.nextSibling.firstChild.style.textDecoration = "line-through";
+		else
+			checkBox.nextSibling.firstChild.style.textDecoration = "none";
+
 	});
 }
