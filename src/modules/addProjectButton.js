@@ -5,8 +5,6 @@ import isProjectNameEmpty from './projectNameCheck.js';
 import deleteIcon from '../images/delete.png'
 import displayNameOfProjects from './displayProjectsName.js';
 
-// import isEmpty from './taskFormCheck.js';
-
 export default function newProjectButton(projectArray)
 {
 	const button = document.querySelector("#add-button-icon");
@@ -31,7 +29,7 @@ export default function newProjectButton(projectArray)
 		newField.type = "text";
 		newField.placeholder = "Project name";
 		newField.minLength = 1;
-		newField.maxLength = 17;
+		newField.maxLength = 23;
 		inputDiv.appendChild(newField);
 		if (projectArray.length > 0)
 			newProjectBlock.style.marginTop = "8px";

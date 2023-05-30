@@ -169,7 +169,6 @@ nav
 	transform: scale(1.04);
 }
 
-
 .cancel-project:active, .submit-project:active
 {
 	opacity: 0.8;
@@ -180,4 +179,16 @@ nav
 	outline: none;
 	border: 2px solid black;
 	border-radius: 3px;
+}
+
+#remove-project-icon:hover
+{
+	cursor: pointer;
+	transform: scale(1.30);
+}
+
+
+#remove-project-icon:active
+{
+	opacity: 0.5;
 }

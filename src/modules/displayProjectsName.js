@@ -25,6 +25,28 @@ export default function displayNameOfProjects(projectArray)
 		newProject.appendChild(projectIcon);
 		newProject.appendChild(projectName);
 		projectSection.appendChild(newProject);
+		console.log(projectName.offsetHeight);
+		if (projectName.offsetHeight > 47 && projectArray.indexOf(project) > 0)
+		{
+			newProject.style.marginBottom = "20px";
+			newProject.style.marginTop = "30px";
+		}
+		else if (projectName.offsetHeight > 47)
+		{
+			console.log("here");
+			newProject.style.marginTop = "30px";
+			newProject.style.marginBottom = "20px";
+		}
+		else if (projectName.offsetHeight > 23 && projectArray.indexOf(project) > 0)
+		{
+			newProject.style.marginBottom = "10px";
+			newProject.style.marginTop = "10px";
+		}
+		else if (projectName.offsetHeight > 23)
+		{
+			newProject.style.marginTop = "20px";
+			newProject.style.marginBottom = "10px";
+		}
 		
 		addDeleteProjectEvent(newProject, projectArray, project);
 		displayProject(project, newProject, projectArray);
