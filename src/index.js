@@ -23,6 +23,6 @@ hideNavigation(document.querySelector("#hide-nav"));
 
 // Home display
 displayHighPriorityTasks(projects);
-displayThisMonth();
-displayToday();
-displayAll();
+displayThisMonth(projects);
+displayToday(projects);
+displayAll(projects);

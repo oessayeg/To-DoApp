@@ -23,9 +23,10 @@ export function addHandler(addButton, project)
 		{
 			let task = 
 			{
-				name : taskName.value,
+				name: taskName.value,
 				dueDate: document.querySelector("#task-due-date").value,
-				priority: (Array.from(priority)).find(element => element.className).className
+				priority: (Array.from(priority)).find(element => element.className).className,
+				isChecked: false
 			};
 			project.tasks.push(task);
 			document.querySelector("#task-block").remove();

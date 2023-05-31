@@ -17,16 +17,19 @@ export default function displayTask(task, project)
 	taskDateBlock.style.display = "flex";
 	taskDateBlock.style.justifyContent = "center";
 	taskDate.textContent = task.dueDate;
-	// taskDateBlock.style.width = "110px";
-	// taskDateBlock.style.display = "flex";
 	taskDate.style.border = "1px solid grey";
 	taskDate.style.display = "inline-block";
 	taskDate.style.borderRadius = "7px";
-	// taskDate.style.textAlign = "center";
 	taskDate.style.marginTop = "10px";
 	taskDate.style.marginBottom = "10px";
 	taskDate.style.padding = "5px";
 	taskDiv.setAttribute("id", "task");
+	if (task.isChecked)
+	{
+		taskName.style.textDecoration = "line-through";
+		taskName.style.opacity = "0.5";
+		checkBox.checked = true;
+	}
 	taskName.textContent = task.name;
 	checkBox.type = "checkbox";
 	checkBox.className = "task-check";
@@ -49,7 +52,7 @@ export default function displayTask(task, project)
 	taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
 	//end here
-	checkBoxTask(checkBox);
+	checkBoxTask(checkBox, task);
 	removeTaskEvent(remove, taskDiv, task, project);
 }
 
@@ -62,7 +65,7 @@ function removeTaskEvent(button, taskDiv, task, project)
 	});
 }
 
-function checkBoxTask(checkBox)
+function checkBoxTask(checkBox, task)
 {
 	checkBox.addEventListener("click", (e) =>
 	{
@@ -70,11 +73,13 @@ function checkBoxTask(checkBox)
 		{
 			checkBox.nextSibling.style.textDecoration = "line-through";
 			checkBox.nextSibling.style.opacity = "0.4";
+			task.isChecked = true;
 		}
 		else
 		{
 			checkBox.nextSibling.style.textDecoration = "none";
 			checkBox.nextSibling.style.opacity = "1";
+			task.isChecked = false;
 		}
 	});
 }
