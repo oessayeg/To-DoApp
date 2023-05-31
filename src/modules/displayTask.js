@@ -1,3 +1,5 @@
+import deleteTask from "../images/deleteTask.png";
+
 export default function displayTask(task, project)
 {
 	const article = document.querySelector("article");
@@ -6,15 +8,22 @@ export default function displayTask(task, project)
 	const taskName = document.createElement("h3");
 	const taskDate = document.createElement("p");
 	const taskAndCheckBox = document.createElement("div");
-	const remove = document.createElement("p");
+	const remove = document.createElement("img");
 
 	taskAndCheckBox.setAttribute("id", "task-checkbox");
 	taskDate.textContent = task.dueDate;
+	taskDate.style.border = "1px solid grey";
+	taskDate.style.padding = "4px";
+	taskDate.style.borderRadius = "7px";
+	taskDate.style.marginTop = "10px";
+	taskDate.style.marginBottom = "10px";
 	taskDiv.setAttribute("id", "task");
 	taskName.textContent = task.name;
 	checkBox.type = "checkbox";
 	checkBox.className = "task-check";
-	remove.textContent = "x";
+	remove.src = deleteTask;
+	remove.style.width = "30px";
+	remove.style.height = "30px";
 	remove.className = "remove-task";
 
 	taskAndCheckBox.appendChild(checkBox);
@@ -48,8 +57,14 @@ function checkBoxTask(checkBox)
 	checkBox.addEventListener("click", (e) =>
 	{
 		if (checkBox.checked)
+		{
 			checkBox.nextSibling.style.textDecoration = "line-through";
+			checkBox.nextSibling.style.opacity = "0.6";
+		}
 		else
+		{
 			checkBox.nextSibling.style.textDecoration = "none";
+			checkBox.nextSibling.style.opacity = "1";
+		}
 	});
 }

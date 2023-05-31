@@ -98,6 +98,7 @@ nav
 #Home > div > h3
 {
 	font-weight: normal;
+	font-size: 20px;
 }
 
 #Home > div:hover
