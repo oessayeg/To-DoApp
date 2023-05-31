@@ -7,16 +7,25 @@ export default function displayTask(task, project)
 	const checkBox = document.createElement("input");
 	const taskName = document.createElement("h3");
 	const taskDate = document.createElement("p");
+	const taskDateBlock = document.createElement("div");
 	const taskAndCheckBox = document.createElement("div");
 	const remove = document.createElement("img");
 
 	taskAndCheckBox.setAttribute("id", "task-checkbox");
+	taskDateBlock.id = "task-date-block";
+	taskDateBlock.style.width = "128px";
+	taskDateBlock.style.display = "flex";
+	taskDateBlock.style.justifyContent = "center";
 	taskDate.textContent = task.dueDate;
+	// taskDateBlock.style.width = "110px";
+	// taskDateBlock.style.display = "flex";
 	taskDate.style.border = "1px solid grey";
-	taskDate.style.padding = "4px";
+	taskDate.style.display = "inline-block";
 	taskDate.style.borderRadius = "7px";
+	// taskDate.style.textAlign = "center";
 	taskDate.style.marginTop = "10px";
 	taskDate.style.marginBottom = "10px";
+	taskDate.style.padding = "5px";
 	taskDiv.setAttribute("id", "task");
 	taskName.textContent = task.name;
 	checkBox.type = "checkbox";
@@ -34,8 +43,9 @@ export default function displayTask(task, project)
 		taskDiv.style.borderLeft = "3px solid #FFA500";
 	else
 		taskDiv.style.borderLeft = "3px solid #FF0000";
-    taskDiv.appendChild(taskAndCheckBox);
-	taskDiv.appendChild(taskDate);
+	taskDateBlock.appendChild(taskDate);
+	taskDiv.appendChild(taskAndCheckBox);
+    taskDiv.appendChild(taskDateBlock);
 	taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
 	//end here
@@ -59,7 +69,7 @@ function checkBoxTask(checkBox)
 		if (checkBox.checked)
 		{
 			checkBox.nextSibling.style.textDecoration = "line-through";
-			checkBox.nextSibling.style.opacity = "0.6";
+			checkBox.nextSibling.style.opacity = "0.4";
 		}
 		else
 		{

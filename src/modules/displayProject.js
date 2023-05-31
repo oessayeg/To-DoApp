@@ -1,5 +1,6 @@
 import taskForm from "./taskForm";
 import displayTask from "./displayTask";
+import { toNormalState } from "./homeDisplay.js"
 
 export default function displayProject(project, list, projectArray)
 {
@@ -9,6 +10,7 @@ export default function displayProject(project, list, projectArray)
 		const title = document.createElement("h2");
 		const article = document.querySelector("article");
 
+		toNormalState(document.querySelectorAll("#Home > div"));
 		titleBlock.id = "title-of-project";
 		title.setAttribute("id", "project-title-show");
 		while (article.firstChild)
@@ -34,7 +36,7 @@ export function addTaskButton(project)
 	addTaskButton.innerHTML = "+&nbsp&nbsp&nbspAdd a task";
 	addTaskButton.style.fontSize = "24px";
 	addTaskButton.style.display = "inline-block";
-	addTaskButton.style.marginRight = "30px";
+	addTaskButton.style.marginRight = "60px";
 	addTaskBlock.appendChild(addTaskButton);
 	article.appendChild(addTaskBlock);
 }

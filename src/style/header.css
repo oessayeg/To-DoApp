@@ -4,7 +4,7 @@ header
 	grid-template-columns: 1fr 1.5fr;
 	align-items: center;
 	margin: 0;
-	border-bottom: 3px solid black;
+	border-bottom: 2px solid black;
 }
 
 #hide-nav

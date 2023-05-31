@@ -10,6 +10,8 @@ import addProjectHandler from './modules/addProjectButton.js';
 import putHeader from './modules/header';
 import putHomeNav from './modules/homeNav';
 import putAddProjectButton from './modules/projectAddButton.js';
+import { displayHighPriorityTasks, displayThisMonth,
+	displayToday, displayAll } from './modules/homeDisplay.js';
 
 let projects = [];
 
@@ -18,3 +20,9 @@ addProjectHandler(projects);
 putHeader();
 putHomeNav();
 hideNavigation(document.querySelector("#hide-nav"));
+
+// Home display
+displayHighPriorityTasks(projects);
+displayThisMonth();
+displayToday();
+displayAll();
