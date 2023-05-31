@@ -5,10 +5,10 @@ export default function displayTask(task, project)
 	const checkBox = document.createElement("input");
 	const taskName = document.createElement("h3");
 	const taskDate = document.createElement("p");
-	const taskAndDate = document.createElement("div");
+	const taskAndCheckBox = document.createElement("div");
 	const remove = document.createElement("p");
 
-	taskAndDate.setAttribute("id", "task-date");
+	taskAndCheckBox.setAttribute("id", "task-checkbox");
 	taskDate.textContent = task.dueDate;
 	taskDiv.setAttribute("id", "task");
 	taskName.textContent = task.name;
@@ -17,13 +17,19 @@ export default function displayTask(task, project)
 	remove.textContent = "x";
 	remove.className = "remove-task";
 
-	taskAndDate.appendChild(taskName);
-	taskAndDate.appendChild(taskDate);
-	taskDiv.appendChild(checkBox);
-	taskDiv.appendChild(taskAndDate);
+	taskAndCheckBox.appendChild(checkBox);
+	taskAndCheckBox.appendChild(taskName);
+	if (task.priority == "Low")
+		taskDiv.style.borderLeft = "3px solid #00c417";
+	else if (task.priority == "Medium")
+		taskDiv.style.borderLeft = "3px solid #FFA500";
+	else
+		taskDiv.style.borderLeft = "3px solid #FF0000";
+    taskDiv.appendChild(taskAndCheckBox);
+	taskDiv.appendChild(taskDate);
 	taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
-	
+	//end here
 	checkBoxTask(checkBox);
 	removeTaskEvent(remove, taskDiv, task, project);
 }
@@ -42,9 +48,8 @@ function checkBoxTask(checkBox)
 	checkBox.addEventListener("click", (e) =>
 	{
 		if (checkBox.checked)
-			checkBox.nextSibling.firstChild.style.textDecoration = "line-through";
+			checkBox.nextSibling.style.textDecoration = "line-through";
 		else
-			checkBox.nextSibling.firstChild.style.textDecoration = "none";
-
+			checkBox.nextSibling.style.textDecoration = "none";
 	});
 }

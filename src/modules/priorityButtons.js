@@ -7,7 +7,6 @@ export default function priorityButtonHandler()
 		button.addEventListener("mouseover", (e) => colorOnHover(button));
 		button.addEventListener("mouseleave", (e) =>
 		{
-			console.log("he");
 			if (!button.className)
 				colorOnLeave(button);
 		});

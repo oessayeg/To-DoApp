@@ -1,18 +1,31 @@
 import { addTaskButton, addTaskEvent } from "./displayProject";
 import { cancelHandler, addHandler } from "./andCancelTask";
 import priorityButtonHandler from "./priorityButtons.js";
+import taskIcon from "../images/toDo.png";
 
 export default function taskForm(project)
 {
 	const article = document.querySelector("article");
+	
+	// Block that's gonna contain the task form + the task icon
+	// const taskAndTaskForm = document.createElement("div");
+	// const taskImg = document.createElement("img");
 
+	// taskAndTaskForm.id = "taskform-and-icon";
+	// taskImg.src = taskIcon;
+	// taskAndTaskForm.appendChild(taskImg);
+	// taskImg.style.width = "70px";
+	// taskImg.style.height = "70px";
 	// Block that's gonna contain all the task infos
 	const taskBlock = document.createElement("div");
+
 	taskBlock.setAttribute("id", "task-block");
 	if (project.tasks.length != 0)
 		taskBlock.style.marginTop = "30px";
-	taskBlock.style.width = "90%";
+	taskBlock.style.width = "100%";
+	// taskBlock.style.flexGrow = "1";
     taskBlock.style.alignSelf = "center";
+
 	// Task title
 	const taskTitle = document.createElement("input");
 	const titleLabel = document.createElement("label");
@@ -88,6 +101,7 @@ export default function taskForm(project)
 	taskBlock.appendChild(titleBlock);
 	taskBlock.appendChild(datePriorityBlock);
 	taskBlock.appendChild(buttonBlock);
+	// taskAndTaskForm.appendChild(taskBlock);
 	article.appendChild(taskBlock);
 
 	// Cancel and Add button event
