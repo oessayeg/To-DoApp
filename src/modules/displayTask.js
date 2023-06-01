@@ -17,7 +17,9 @@ export default function displayTask(task, project)
 	taskDateBlock.style.display = "flex";
 	taskDateBlock.style.justifyContent = "center";
 	taskDate.textContent = task.dueDate;
-	taskDate.style.border = "1px solid grey";
+	taskDate.style.border = "1px solid black";
+	taskDate.style.backgroundColor = "#F9F7F7";
+	taskDate.style.color = "#112D4E";
 	taskDate.style.display = "inline-block";
 	taskDate.style.borderRadius = "7px";
 	taskDate.style.marginTop = "10px";

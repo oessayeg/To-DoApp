@@ -11,14 +11,15 @@ nav
 	padding-right: 14px;
 	padding-left: 14px;
 	width: 280px;
-	border-right: 2px solid black;
+	border-right: 2px solid #112D4E;
 }
 
 #Home > h2, #Projects > h2
 {
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid #112D4E;
 	margin-bottom: 0;
 	font-size: 30px;
+	color: #112D4E;
 }
 
 #project-creator
@@ -47,7 +48,7 @@ nav
 #projectName
 {
 	width: 76%;
-	font-size: 16px;
+	font-size: 18px;
 	height: 20px;
 	padding: 5px;
 }
@@ -78,6 +79,7 @@ nav
 {
 	font-size: 20px;
 	font-weight: normal;
+	color: #112D4E;
 }
 
 #Home > div
@@ -99,6 +101,7 @@ nav
 {
 	font-weight: normal;
 	font-size: 20px;
+	color: #112D4E;
 }
 
 #Home > div:hover
@@ -125,7 +128,6 @@ nav
 	width: 60%;
 }
 
-
 #add-button-icon:hover
 {
 	transform: scale(1.10);
@@ -137,6 +139,7 @@ nav
 	margin-top: 0;
 	margin-bottom: 0;
 	margin-right: 8px;
+	color: #112D4E;
 }
 
 #global-button-icon
@@ -181,7 +184,8 @@ nav
 #projectName:focus
 {
 	outline: none;
-	border: 2px solid black;
+	border: 2px solid #112D4E;
+	color: #112D4E;
 	border-radius: 3px;
 }
 
@@ -190,7 +194,6 @@ nav
 	cursor: pointer;
 	transform: scale(1.30);
 }
-
 
 #remove-project-icon:active
 {

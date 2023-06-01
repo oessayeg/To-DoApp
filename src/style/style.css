@@ -9,6 +9,7 @@ body
 	display: grid;
 	grid-template-rows: auto 1fr;
 	height: 100vh;
+	background-color: #F9F7F7;
 }
 
 li
@@ -28,11 +29,6 @@ main
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: 3px;
-}
-
-#Projects > ul > li:active
-{
-	opacity: 0.5;
 }
 
 article

@@ -4,7 +4,8 @@ header
 	grid-template-columns: 1fr 1.5fr;
 	align-items: center;
 	margin: 0;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid #112D4E;
+	color: #112D4E;
 }
 
 #hide-nav
