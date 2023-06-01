@@ -1,4 +1,5 @@
 import displayTask from "./displayTask";
+import excitedImage from "../images/ExcitedBg.png"
 
 export function displayAll(projectArray)
 {
@@ -14,6 +15,8 @@ export function displayAll(projectArray)
 				displayTask(task, project);
 			})
 		})
+		if (projectArray.every(project => project.tasks.length == 0))
+			displayExcitmentImage();
 	})
 }
 
@@ -34,6 +37,14 @@ export function displayToday(projectArray)
 						displayTask(task, project);
 				})
 			})
+			let isToday = true;
+
+			projectArray.forEach(project => {
+				if (!project.tasks.every(task => task.dueDate.split("-")[2] != new Date().getDate()))
+					isToday = false;
+			})
+			if (isToday)
+				displayExcitmentImage();
 	})
 }
 
@@ -52,6 +63,16 @@ export function displayThisMonth(projectArray)
 					displayTask(task, project);
 			})
 		})
+		let isSameMonth = true;
+
+		projectArray.forEach(project => {
+			project.tasks.forEach(t => {
+				if (Number(t.dueDate.split("-")[1]) == new Date().getMonth() + 1)
+					isSameMonth = false;
+			});
+		})
+		if (isSameMonth)
+			displayExcitmentImage();
 	})
 }
 
@@ -73,6 +94,15 @@ export function displayHighPriorityTasks(projectArray)
 							displayTask(task, project);
 					})
 			})
+			let isHigh = true;
+
+			projectArray.forEach(project => {
+				if (!project.tasks.every(task => task.priority != "High"))
+					isHigh = false;
+			})
+			if (isHigh)
+				displayExcitmentImage();
+			
 	})
 }
 
@@ -179,4 +209,22 @@ function displayHomeTasks(tasksArray, homeNavTitle)
     // taskDiv.appendChild(taskDateBlock);
 	// taskDiv.appendChild(remove);
 	// article.appendChild(taskDiv);
+}
+
+function displayExcitmentImage()
+{
+	const article = document.querySelector("article");
+	const imageToAdd = document.createElement("img");
+	const excitedBlock = document.createElement("div");
+	const title = document.createElement("h3");
+
+	title.textContent = "Hurraay ! No tasks !";
+	title.id = "no-tasks-title";
+	excitedBlock.id = "excited-vector";
+	imageToAdd.src = excitedImage;
+	imageToAdd.style.width = "490px";
+	imageToAdd.style.height = "490px";
+	excitedBlock.appendChild(title);
+	excitedBlock.appendChild(imageToAdd);
+	article.appendChild(excitedBlock);
 }

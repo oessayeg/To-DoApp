@@ -33,7 +33,9 @@ export default function isEmpty()
 		dateWarning.style.color = "red";
 		dateWarning.style.fontSize = "15px";
 		dateWarning.style.margin = "0";
+		dateWarning.style.marginBottom = "-17px";
 		dueDate.appendChild(dateWarning);
+		console.log("Here");
 		date.addEventListener("input", (e) =>
 		{
 			dateWarning.remove();
@@ -50,11 +52,13 @@ export default function isEmpty()
 			const pBlock = document.querySelector("#priority-block");
 
 			priorityWarning.className = "priority-warning";
-			priorityWarning.textContent = "Please specify priority";
+			priorityWarning.textContent = "Please specify a level";
 			priorityWarning.style.color = "red";
 			priorityWarning.style.fontSize = "15px";
 			priorityWarning.style.margin = "0"; 
+			priorityWarning.style.marginBottom = "-15px";
 			pBlock.appendChild(priorityWarning);
+			pBlock.style.justifyContent = "center";
 			document.querySelector("#date-priority").style.alignItems = "normal";
 			buttons.forEach(button =>
 				{

@@ -27,7 +27,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr ;
 	gap: 30px;
-	align-items: center;
 }
 
 #add-cancel-task
@@ -295,4 +294,20 @@ input.task-check:active, .remove-task:active
 label
 {
 	color: #112D4E;
+}
+
+#excited-vector
+{
+	display: flex;
+	flex-direction: column ;
+	justify-content: center;
+	align-items: center;
+}
+
+#no-tasks-title
+{
+	font-size: 29px;
+	color: #112D4E;
+	margin-bottom: 0;
+	margin-top: 14px;
 }
