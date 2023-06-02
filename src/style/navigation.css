@@ -68,6 +68,11 @@ nav
 	height: 35px;
 }
 
+#project-name-icon:active
+{
+	opacity: 0.6;
+}
+
 #project-name-icon:hover
 {
 	transform: scale(1.10);

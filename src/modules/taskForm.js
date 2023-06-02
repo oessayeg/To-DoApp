@@ -105,7 +105,7 @@ export default function taskForm(project, projectArray)
 	article.appendChild(taskBlock);
 
 	// Cancel and Add button event
-	cancelHandler(cancelButton, project);
+	cancelHandler(cancelButton, project, projectArray);
 	addHandler(addButton, project, projectArray);
 	taskTitle.focus();
 	// Priority buttons event

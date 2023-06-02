@@ -12,6 +12,7 @@ export default function displayTask(task, project, projectArray)
 	const taskAndCheckBox = document.createElement("div");
 	const remove = document.createElement("img");
 
+	console.log("In displayTask : " + projectArray);
 	taskAndCheckBox.setAttribute("id", "task-checkbox");
 	taskDateBlock.id = "task-date-block";
 	taskDateBlock.style.width = "128px";
@@ -52,22 +53,28 @@ export default function displayTask(task, project, projectArray)
 	taskDateBlock.appendChild(taskDate);
 	taskDiv.appendChild(taskAndCheckBox);
     taskDiv.appendChild(taskDateBlock);
-	taskDiv.appendChild(remove);
+	if (!isHomeNav())
+		taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
-	//end here
 	checkBoxTask(checkBox, task);
-	removeTaskEvent(remove, taskDiv, task, project, projectArray);
+	if (!isHomeNav())
+		removeTaskEvent(remove, taskDiv, task, project, projectArray);
 }
 
 function removeTaskEvent(button, taskDiv, task, project, projectArray)
 {
 	button.addEventListener("click", (e) =>
 	{
-		taskDiv.remove();
-		project.tasks = project.tasks.filter(e => e.name != task.name);
-		localStorage.setItem("projects", JSON.stringify(projectArray));
-		if (!taskDiv.nextSibling && isHomeNav())
-			displayExcitmentImage();
+		if (!isHomeNav())
+		{
+			taskDiv.remove();
+			console.log(projectArray);
+			project.tasks = project.tasks.filter(e => e.name != task.name);
+			localStorage.setItem("projects", JSON.stringify(projectArray));
+			console.log("Hey from removeTaskEvent");
+			if (!taskDiv.nextSibling && isHomeNav())
+				displayExcitmentImage();
+		}
 	});
 }
 

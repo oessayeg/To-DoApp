@@ -47,6 +47,7 @@ export default function displayNameOfProjects(projectArray)
 		}
 		
 		addDeleteProjectEvent(newProject, projectArray, project);
+		console.log("In displayProjectsName : " + projectArray);
 		displayProject(project, newProject, projectArray);
 	})
 }

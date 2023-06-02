@@ -12,7 +12,8 @@ export function displayAll(projectArray)
 		displayTitle("All tasks");
 		projectArray.forEach(project => {
 			project.tasks.forEach(task => {
-				displayTask(task, project);
+				console.log("In displayAll : " + projectArray);
+				displayTask(task, project, projectArray);
 			})
 		})
 		if (projectArray.every(project => project.tasks.length == 0))
@@ -26,25 +27,7 @@ export function displayToday(projectArray)
 
 	todayButton.addEventListener("click", (e) =>
 	{
-		toNormalState(document.querySelectorAll("#Home > div"));
-		enlargeButton(todayButton);
-		displayTitle("Today");
-		projectArray.forEach(project =>
-			{
-				project.tasks.forEach(task =>
-				{
-					if (task.dueDate.split("-")[2] == new Date().getDate())
-						displayTask(task, project);
-				})
-			})
-			let isToday = true;
-
-			projectArray.forEach(project => {
-				if (!project.tasks.every(task => task.dueDate.split("-")[2] != new Date().getDate()))
-					isToday = false;
-			})
-			if (isToday)
-				displayExcitmentImage();
+		showTodayTasks(todayButton, projectArray);
 	})
 }
 
@@ -60,7 +43,10 @@ export function displayThisMonth(projectArray)
 		projectArray.forEach(project => {
 			project.tasks.forEach(task => {
 				if (Number(task.dueDate.split("-")[1]) == new Date().getMonth() + 1)
-					displayTask(task, project);
+				{
+					console.log("In displayThismonth : " + projectArray);
+					displayTask(task, project, projectArray);
+				}
 			})
 		})
 		let isSameMonth = true;
@@ -85,13 +71,16 @@ export function displayHighPriorityTasks(projectArray)
 		toNormalState(document.querySelectorAll("#Home > div"));
 		enlargeButton(highPriority);
 		displayTitle("High priority");
-
+		console.log("In high priority : " + projectArray);
 		projectArray.forEach(project => 
 			{
 				project.tasks.forEach(task =>
 					{
 						if (task.priority === "High")
-							displayTask(task, project);
+						{
+							console.log("In high priority display : " + projectArray);
+							displayTask(task, project, projectArray);
+						}
 					})
 			})
 			let isHigh = true;
@@ -143,11 +132,6 @@ export function toNormalState(homeButtons)
 		}
 	})
 }
-
-/* Here I should create a function that takes as parameter a
-	task array and displays all those tasks
-	function displayTasks(tasksArray, titleOfTheHomeMavigation)
-	*/
 
 function displayTitle(homeNavTitle)
 {
@@ -218,7 +202,7 @@ export function displayExcitmentImage()
 	const excitedBlock = document.createElement("div");
 	const title = document.createElement("h3");
 
-	title.textContent = "Hurraay ! No tasks !";
+	title.textContent = "Hurray ! No tasks !";
 	title.id = "no-tasks-title";
 	excitedBlock.id = "excited-vector";
 	imageToAdd.src = excitedImage;
@@ -227,4 +211,30 @@ export function displayExcitmentImage()
 	excitedBlock.appendChild(title);
 	excitedBlock.appendChild(imageToAdd);
 	article.appendChild(excitedBlock);
+}
+
+export function showTodayTasks(todayButton, projectArray)
+{
+	toNormalState(document.querySelectorAll("#Home > div"));
+	enlargeButton(todayButton);
+	displayTitle("Today");
+	projectArray.forEach(project =>
+		{
+			project.tasks.forEach(task =>
+			{
+				if (task.dueDate.split("-")[2] == new Date().getDate())
+				{
+					console.log("In todayTasks : " + projectArray);
+					displayTask(task, project, projectArray);
+				}
+			})
+		})
+		let isToday = true;
+
+		projectArray.forEach(project => {
+			if (!project.tasks.every(task => task.dueDate.split("-")[2] != new Date().getDate()))
+				isToday = false;
+		})
+		if (isToday)
+			displayExcitmentImage();
 }
