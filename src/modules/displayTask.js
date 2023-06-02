@@ -55,6 +55,16 @@ export default function displayTask(task, project, projectArray)
 	if (!isHomeNav())
 		taskDiv.appendChild(remove);
 	article.appendChild(taskDiv);
+	// if (document.querySelector("#all-tasks-block"))
+	// 	document.querySelector("#all-tasks-block").appendChild(taskDiv);
+	// else
+	// {
+	// 	const allTasksBlock = document.createElement("div");
+
+	// 	allTasksBlock.id = "all-tasks-block";
+	// 	allTasksBlock.appendChild(taskDiv);
+	// 	article.appendChild(allTasksBlock);
+	// }
 	checkBoxTask(checkBox, task);
 	if (!isHomeNav())
 		removeTaskEvent(remove, taskDiv, task, project, projectArray);

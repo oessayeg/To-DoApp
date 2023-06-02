@@ -47,6 +47,7 @@ export function addTaskEvent(project, projectArray)
 
 	addNoteButton.addEventListener("click", (e) =>
 	{
+		document.querySelector("#add-task-block").remove();
 		addNoteButton.remove();
 		taskForm(project, projectArray);
 	})

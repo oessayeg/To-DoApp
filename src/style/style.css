@@ -28,6 +28,7 @@ main
 {
 	display: grid;
 	grid-template-columns: auto 1fr;
+	grid-template-rows: 1fr;
 	gap: 3px;
 }
 
@@ -37,6 +38,7 @@ article
 	padding-right: 60px;
 	display: flex;
 	flex-direction: column;
+	padding-bottom: 40px;
 }
 
 ul
