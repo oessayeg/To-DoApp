@@ -1,6 +1,7 @@
 import deleteTask from "../images/deleteTask.png";
+import { displayExcitmentImage } from "./homeDisplay";
 
-export default function displayTask(task, project)
+export default function displayTask(task, project, projectArray)
 {
 	const article = document.querySelector("article");
 	const taskDiv = document.createElement("div");
@@ -55,15 +56,18 @@ export default function displayTask(task, project)
 	article.appendChild(taskDiv);
 	//end here
 	checkBoxTask(checkBox, task);
-	removeTaskEvent(remove, taskDiv, task, project);
+	removeTaskEvent(remove, taskDiv, task, project, projectArray);
 }
 
-function removeTaskEvent(button, taskDiv, task, project)
+function removeTaskEvent(button, taskDiv, task, project, projectArray)
 {
 	button.addEventListener("click", (e) =>
 	{
 		taskDiv.remove();
 		project.tasks = project.tasks.filter(e => e.name != task.name);
+		localStorage.setItem("projects", JSON.stringify(projectArray));
+		if (!taskDiv.nextSibling && isHomeNav())
+			displayExcitmentImage();
 	});
 }
 
@@ -84,4 +88,12 @@ function checkBoxTask(checkBox, task)
 			task.isChecked = false;
 		}
 	});
+}
+
+function isHomeNav()
+{
+	const title = document.querySelector("#project-title-show");
+
+	return (title.textContent == "All tasks" || title.textContent == "This month"
+		|| title.textContent == "Today" || title.textContent == "High priority")
 }

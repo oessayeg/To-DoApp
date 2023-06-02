@@ -3,7 +3,7 @@ import { cancelHandler, addHandler } from "./andCancelTask";
 import priorityButtonHandler from "./priorityButtons.js";
 import taskIcon from "../images/toDo.png";
 
-export default function taskForm(project)
+export default function taskForm(project, projectArray)
 {
 	const article = document.querySelector("article");
 	
@@ -106,11 +106,10 @@ export default function taskForm(project)
 
 	// Cancel and Add button event
 	cancelHandler(cancelButton, project);
-	addHandler(addButton, project);
+	addHandler(addButton, project, projectArray);
 	taskTitle.focus();
 	// Priority buttons event
 	priorityButtonHandler();
-
 }
 
 // function addAndCancelButtons(project)

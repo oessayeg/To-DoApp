@@ -12,7 +12,7 @@ export function cancelHandler(cancelButton, project)
 	})
 }
 
-export function addHandler(addButton, project)
+export function addHandler(addButton, project, projectArray)
 {
 	const taskName = document.querySelector("#task-title");
 	const priority = document.querySelectorAll("#priority-choice > button");
@@ -29,8 +29,9 @@ export function addHandler(addButton, project)
 				isChecked: false
 			};
 			project.tasks.push(task);
+			localStorage.setItem("projects", JSON.stringify(projectArray))
 			document.querySelector("#task-block").remove();
-			displayTask(task, project);
+			displayTask(task, project, projectArray);
 			addTaskButton(project);
 			addTaskEvent(project);
 		}

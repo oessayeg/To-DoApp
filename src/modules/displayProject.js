@@ -21,7 +21,7 @@ export default function displayProject(project, list, projectArray)
 		
 		project.tasks.forEach(element => displayTask(element, project));
 		addTaskButton(project);
-		addTaskEvent(project);
+		addTaskEvent(project, projectArray);
 	})
 }
 
@@ -41,13 +41,13 @@ export function addTaskButton(project)
 	article.appendChild(addTaskBlock);
 }
 
-export function addTaskEvent(project)
+export function addTaskEvent(project, projectArray)
 {
 	const addNoteButton = document.querySelector("#task-button");
 
 	addNoteButton.addEventListener("click", (e) =>
 	{
 		addNoteButton.remove();
-		taskForm(project);
+		taskForm(project, projectArray);
 	})
 }

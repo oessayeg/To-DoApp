@@ -211,7 +211,7 @@ function displayHomeTasks(tasksArray, homeNavTitle)
 	// article.appendChild(taskDiv);
 }
 
-function displayExcitmentImage()
+export function displayExcitmentImage()
 {
 	const article = document.querySelector("article");
 	const imageToAdd = document.createElement("img");

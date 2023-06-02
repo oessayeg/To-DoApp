@@ -97,6 +97,7 @@ export function addDeleteProjectEvent(block, projectArray, objToFind)
 			if (index >= 0)
 			{
 				projectArray.splice(index, 1);
+				localStorage.setItem("projects", JSON.stringify(projectArray));
 				displayNameOfProjects(projectArray);
 				putAddProjectButton(projectArray.length);
 				newProjectButton(projectArray);
@@ -123,6 +124,7 @@ function createAndDisplayProject(projectArray)
 			tasks: []
 		}
 		projectArray.push(obj);
+		localStorage.setItem("projects", JSON.stringify(projectArray));
 		displayNameOfProjects(projectArray);
 		putAddProjectButton(projectArray.length);
 		newProjectButton(projectArray);
