@@ -31,8 +31,6 @@ export function addHandler(addButton, project, projectArray)
 			project.tasks.push(task);
 			localStorage.setItem("projects", JSON.stringify(projectArray))
 			document.querySelector("#task-block").remove();
-			console.error("In addHandler : " + projectArray);
-			console.error("I am here");
 			displayTask(task, project, projectArray);
 			addTaskButton(project);
 			addTaskEvent(project, projectArray);

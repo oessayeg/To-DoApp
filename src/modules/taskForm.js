@@ -1,29 +1,15 @@
-import { addTaskButton, addTaskEvent } from "./displayProject";
 import { cancelHandler, addHandler } from "./andCancelTask";
 import priorityButtonHandler from "./priorityButtons.js";
-import taskIcon from "../images/toDo.png";
 
 export default function taskForm(project, projectArray)
 {
 	const article = document.querySelector("article");
-	
-	// Block that's gonna contain the task form + the task icon
-	// const taskAndTaskForm = document.createElement("div");
-	// const taskImg = document.createElement("img");
-
-	// taskAndTaskForm.id = "taskform-and-icon";
-	// taskImg.src = taskIcon;
-	// taskAndTaskForm.appendChild(taskImg);
-	// taskImg.style.width = "70px";
-	// taskImg.style.height = "70px";
-	// Block that's gonna contain all the task infos
 	const taskBlock = document.createElement("div");
 
 	taskBlock.setAttribute("id", "task-block");
 	if (project.tasks.length != 0)
 		taskBlock.style.marginTop = "30px";
 	taskBlock.style.width = "100%";
-	// taskBlock.style.flexGrow = "1";
     taskBlock.style.alignSelf = "center";
 
 	// Task title
@@ -111,43 +97,3 @@ export default function taskForm(project, projectArray)
 	// Priority buttons event
 	priorityButtonHandler();
 }
-
-// function addAndCancelButtons(project)
-// {
-// 	const divForm = document.querySelector("#new-task-form");
-// 	const addButton = document.createElement("button");
-// 	const cancelButton = document.createElement("button");
-// 	const taskTitle = document.querySelector("#task-title");
-// 	const article = document.querySelector("article");
-
-// 	addButton.setAttribute("id", "add-task");
-// 	cancelButton.setAttribute("id", "cancel-task");
-// 	divForm.appendChild(addButton);
-// 	divForm.appendChild(cancelButton);
-// 	addButton.textContent = "Add";
-// 	cancelButton.textContent = "Cancel";
-// 	cancelButton.addEventListener("click", (e) =>
-// 	{
-// 		divForm.remove();
-// 		addTaskButton();
-// 		addTaskEvent();
-// 	});
-
-// 	addButton.addEventListener("click", (e) =>
-// 	{
-// 		const newElement = document.createElement("p");
-
-// 		let task = 
-// 		{
-// 			title : taskTitle.value,
-// 			dueDate : null
-// 		}
-// 		project.tasks.push(task);
-// 		divForm.remove();
-// 		newElement.textContent = task.title;
-// 		article.appendChild(newElement);
-// 		addTaskButton(project);
-// 		addTaskEvent(project);	
-
-// 	});
-// }

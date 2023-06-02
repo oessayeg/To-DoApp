@@ -10,7 +10,6 @@ export default function displayProject(project, list, projectArray)
 		const title = document.createElement("h2");
 		const article = document.querySelector("article");
 
-		console.log("In display project : " + projectArray);
 		toNormalState(document.querySelectorAll("#Home > div"));
 		titleBlock.id = "title-of-project";
 		title.setAttribute("id", "project-title-show");
@@ -48,7 +47,6 @@ export function addTaskEvent(project, projectArray)
 
 	addNoteButton.addEventListener("click", (e) =>
 	{
-		console.log("In add task event : " + projectArray);
 		addNoteButton.remove();
 		taskForm(project, projectArray);
 	})

@@ -12,7 +12,6 @@ export function displayAll(projectArray)
 		displayTitle("All tasks");
 		projectArray.forEach(project => {
 			project.tasks.forEach(task => {
-				console.log("In displayAll : " + projectArray);
 				displayTask(task, project, projectArray);
 			})
 		})
@@ -43,10 +42,7 @@ export function displayThisMonth(projectArray)
 		projectArray.forEach(project => {
 			project.tasks.forEach(task => {
 				if (Number(task.dueDate.split("-")[1]) == new Date().getMonth() + 1)
-				{
-					console.log("In displayThismonth : " + projectArray);
 					displayTask(task, project, projectArray);
-				}
 			})
 		})
 		let isSameMonth = true;
@@ -71,16 +67,12 @@ export function displayHighPriorityTasks(projectArray)
 		toNormalState(document.querySelectorAll("#Home > div"));
 		enlargeButton(highPriority);
 		displayTitle("High priority");
-		console.log("In high priority : " + projectArray);
 		projectArray.forEach(project => 
 			{
 				project.tasks.forEach(task =>
 					{
 						if (task.priority === "High")
-						{
-							console.log("In high priority display : " + projectArray);
 							displayTask(task, project, projectArray);
-						}
 					})
 			})
 			let isHigh = true;
@@ -148,53 +140,6 @@ function displayTitle(homeNavTitle)
 	article.appendChild(titleBlock);
 }
 
-function displayHomeTasks(tasksArray, homeNavTitle)
-{
-	// Task displaying
-	// const taskDiv = document.createElement("div");
-	// const checkBox = document.createElement("input");
-	// const taskName = document.createElement("h3");
-	// const taskDate = document.createElement("p");
-	// const taskDateBlock = document.createElement("div");
-	// const taskAndCheckBox = document.createElement("div");
-	// const remove = document.createElement("img");
-
-	// taskAndCheckBox.setAttribute("id", "task-checkbox");
-	// taskDateBlock.id = "task-date-block";
-	// taskDateBlock.style.width = "128px";
-	// taskDateBlock.style.display = "flex";
-	// taskDateBlock.style.justifyContent = "center";
-	// taskDate.textContent = task.dueDate;
-	// taskDate.style.border = "1px solid grey";
-	// taskDate.style.display = "inline-block";
-	// taskDate.style.borderRadius = "7px";
-	// taskDate.style.marginTop = "10px";
-	// taskDate.style.marginBottom = "10px";
-	// taskDate.style.padding = "5px";
-	// taskDiv.setAttribute("id", "task");
-	// taskName.textContent = task.name;
-	// checkBox.type = "checkbox";
-	// checkBox.className = "task-check";
-	// // remove.src = deleteTask;
-	// remove.style.width = "30px";
-	// remove.style.height = "30px";
-	// remove.className = "remove-task";
-
-	// taskAndCheckBox.appendChild(checkBox);
-	// taskAndCheckBox.appendChild(taskName);
-	// if (task.priority == "Low")
-	// 	taskDiv.style.borderLeft = "3px solid #00c417";
-	// else if (task.priority == "Medium")
-	// 	taskDiv.style.borderLeft = "3px solid #FFA500";
-	// else
-	// 	taskDiv.style.borderLeft = "3px solid #FF0000";
-	// taskDateBlock.appendChild(taskDate);
-	// taskDiv.appendChild(taskAndCheckBox);
-    // taskDiv.appendChild(taskDateBlock);
-	// taskDiv.appendChild(remove);
-	// article.appendChild(taskDiv);
-}
-
 export function displayExcitmentImage()
 {
 	const article = document.querySelector("article");
@@ -223,10 +168,7 @@ export function showTodayTasks(todayButton, projectArray)
 			project.tasks.forEach(task =>
 			{
 				if (task.dueDate.split("-")[2] == new Date().getDate())
-				{
-					console.log("In todayTasks : " + projectArray);
 					displayTask(task, project, projectArray);
-				}
 			})
 		})
 		let isToday = true;

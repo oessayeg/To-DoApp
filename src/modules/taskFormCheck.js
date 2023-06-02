@@ -35,7 +35,6 @@ export default function isEmpty()
 		dateWarning.style.margin = "0";
 		dateWarning.style.marginBottom = "-17px";
 		dueDate.appendChild(dateWarning);
-		console.log("Here");
 		date.addEventListener("input", (e) =>
 		{
 			dateWarning.remove();

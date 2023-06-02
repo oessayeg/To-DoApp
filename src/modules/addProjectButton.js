@@ -1,9 +1,8 @@
-import displayProject from './displayProject.js';
-import projectPng from '../images/t.png';
 import putAddProjectButton from './projectAddButton.js';
 import isProjectNameEmpty from './projectNameCheck.js';
 import deleteIcon from '../images/delete.png'
 import displayNameOfProjects from './displayProjectsName.js';
+import { isCreated } from './projectNameCheck.js';
 
 export default function newProjectButton(projectArray)
 {
@@ -117,7 +116,7 @@ function createAndDisplayProject(projectArray)
 {
 	const inputField = document.querySelector("#projectName");
 
-	if (!isProjectNameEmpty(inputField))
+	if (!isProjectNameEmpty(inputField) && !isCreated(inputField, projectArray))
 	{
 		let obj = {
 			name: inputField.value,

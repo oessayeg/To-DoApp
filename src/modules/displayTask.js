@@ -12,7 +12,6 @@ export default function displayTask(task, project, projectArray)
 	const taskAndCheckBox = document.createElement("div");
 	const remove = document.createElement("img");
 
-	console.log("In displayTask : " + projectArray);
 	taskAndCheckBox.setAttribute("id", "task-checkbox");
 	taskDateBlock.id = "task-date-block";
 	taskDateBlock.style.width = "128px";
@@ -68,10 +67,8 @@ function removeTaskEvent(button, taskDiv, task, project, projectArray)
 		if (!isHomeNav())
 		{
 			taskDiv.remove();
-			console.log(projectArray);
 			project.tasks = project.tasks.filter(e => e.name != task.name);
 			localStorage.setItem("projects", JSON.stringify(projectArray));
-			console.log("Hey from removeTaskEvent");
 			if (!taskDiv.nextSibling && isHomeNav())
 				displayExcitmentImage();
 		}
