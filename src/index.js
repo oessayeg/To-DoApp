@@ -40,7 +40,6 @@ let obj = [
 // Main array object that'll contain projects and tasks
 let projects = [];
 
-// localStorage
 if (localStorage.getItem("projects"))
 	projects = JSON.parse(localStorage.getItem("projects"))
 else

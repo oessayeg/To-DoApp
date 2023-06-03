@@ -15,7 +15,7 @@ export function displayAll(projectArray)
 				displayTask(task, project, projectArray);
 			})
 		})
-		if (projectArray.every(project => project.tasks.length == 0))
+		if (!document.querySelector("#task"))
 			displayExcitmentImage();
 	})
 }
@@ -45,15 +45,7 @@ export function displayThisMonth(projectArray)
 					displayTask(task, project, projectArray);
 			})
 		})
-		let isSameMonth = true;
-
-		projectArray.forEach(project => {
-			project.tasks.forEach(t => {
-				if (Number(t.dueDate.split("-")[1]) == new Date().getMonth() + 1)
-					isSameMonth = false;
-			});
-		})
-		if (isSameMonth)
+		if (!document.querySelector("#task"))
 			displayExcitmentImage();
 	})
 }
@@ -75,15 +67,8 @@ export function displayHighPriorityTasks(projectArray)
 							displayTask(task, project, projectArray);
 					})
 			})
-			let isHigh = true;
-
-			projectArray.forEach(project => {
-				if (!project.tasks.every(task => task.priority != "High"))
-					isHigh = false;
-			})
-			if (isHigh)
+			if (!document.querySelector("#task"))
 				displayExcitmentImage();
-			
 	})
 }
 
@@ -167,16 +152,10 @@ export function showTodayTasks(todayButton, projectArray)
 		{
 			project.tasks.forEach(task =>
 			{
-				if (task.dueDate.split("-")[2] == new Date().getDate())
+				if (task.dueDate.split("-")[2] == new Date().getDate() && Number(task.dueDate.split("-")[1]) == new Date().getMonth() + 1)
 					displayTask(task, project, projectArray);
 			})
 		})
-		let isToday = true;
-
-		projectArray.forEach(project => {
-			if (!project.tasks.every(task => task.dueDate.split("-")[2] != new Date().getDate()))
-				isToday = false;
-		})
-		if (isToday)
+		if (!document.querySelector("#task"))
 			displayExcitmentImage();
 }
