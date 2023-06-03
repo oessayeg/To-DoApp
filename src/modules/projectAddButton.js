@@ -19,5 +19,5 @@ export default function putAddProjectButton(length)
 	buttonAndIcon.appendChild(addIcon)
 	buttonAndIcon.appendChild(button)
 	globalBlock.appendChild(buttonAndIcon)
-	document.querySelector("#Projects").appendChild(globalBlock);
+	document.querySelector("#project-name").appendChild(globalBlock);
 }

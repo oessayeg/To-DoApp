@@ -10,7 +10,7 @@ nav
 	gap: 20px;
 	padding-right: 14px;
 	padding-left: 14px;
-	width: 280px;
+	width: 290px;
 	border-right: 2px solid #112D4E;
 	padding-bottom: 23px;
 	padding-top: 23px;
@@ -83,7 +83,7 @@ nav
 
 #project-name-icon:hover
 {
-	transform: scale(1.10);
+	transform: scale(1.08);
 	cursor: pointer;
 	padding-left: 32px;
 }
@@ -213,14 +213,22 @@ nav
 	opacity: 0.5;
 }
 
-/* #Projects
+#Projects
 {
+	display: flex;
+	flex-direction: column;
 	flex-grow: 1;
 	height: 0;
-	overflow: auto;
-} */
+}
 
 #Projects > h2
 {
 	margin-top: 0;
+}
+
+#project-name
+{
+	flex-grow: 1;
+	overflow-y: auto;
+	margin-top: 15px;
 }

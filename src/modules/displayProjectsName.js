@@ -4,7 +4,7 @@ import { addDeleteProjectEvent } from './addProjectButton';
 
 export default function displayNameOfProjects(projectArray)
 {
-	const projectSection = document.querySelector("#Projects");
+	const projectSection = document.querySelector("#project-name");
 
 	removeNameAndInput();
 	projectArray.forEach(project =>
@@ -14,8 +14,6 @@ export default function displayNameOfProjects(projectArray)
 		const projectIcon = document.createElement("img");
 
 		newProject.id = "project-name-icon";
-		if (projectArray.indexOf(project) == 0)
-			newProject.style.marginTop = "15px";
 		projectIcon.style.width = "27px";
 		projectIcon.style.height = "27px";
 		projectName.textContent = project.name;
@@ -53,7 +51,7 @@ export default function displayNameOfProjects(projectArray)
 
 function removeNameAndInput()
 {
-	const projectSection = document.querySelector("#Projects");
+	const projectSection = document.querySelector("#project-name");
 	const allNames = document.querySelectorAll("#project-name-icon");
 
 	allNames.forEach(block =>

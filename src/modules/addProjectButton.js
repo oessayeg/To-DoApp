@@ -7,7 +7,7 @@ import { isCreated } from './projectNameCheck.js';
 export default function newProjectButton(projectArray)
 {
 	const button = document.querySelector("#add-button-icon");
-	const projectList = document.querySelector("#Projects");
+	const projectList = document.querySelector("#project-name");
 	const newProjectBlock = document.createElement("div");
 
 	newProjectBlock.setAttribute("id", "project-creator");
@@ -49,7 +49,7 @@ export default function newProjectButton(projectArray)
 
 function cancelEvent(cancelButton, projectArray)
 {
-	const projectSection = document.querySelector("#Projects");
+	const projectSection = document.querySelector("#project-name");
 
 	cancelButton.addEventListener("click", (e) => 
 	{
