@@ -8,17 +8,18 @@ export default function displayProject(project, list, projectArray)
 	{
 		const titleBlock = document.createElement("div");
 		const title = document.createElement("h2");
-		const article = document.querySelector("article");
+		const article = document.querySelector("#article-container");
 
 		toNormalState(document.querySelectorAll("#Home > div"));
 		titleBlock.id = "title-of-project";
 		title.setAttribute("id", "project-title-show");
+		if (document.querySelector("#title-of-project"))
+			document.querySelector("#title-of-project").remove();
 		while (article.firstChild)
 			article.firstChild.remove();
 		title.textContent = project.name;
 		titleBlock.appendChild(title);
-		article.appendChild(titleBlock);
-		
+		document.querySelector("article").insertAdjacentElement('afterbegin', titleBlock);
 		project.tasks.forEach(element => displayTask(element, project, projectArray));
 		addTaskButton(project);
 		addTaskEvent(project, projectArray);
@@ -28,7 +29,7 @@ export default function displayProject(project, list, projectArray)
 export function addTaskButton(project)
 {
 	const addTaskButton = document.createElement("h3");
-	const article = document.querySelector("article");
+	const article = document.querySelector("#article-container");
 	const addTaskBlock = document.createElement("div");
 
 	addTaskBlock.id = "add-task-block";

@@ -14,6 +14,7 @@
 	padding-top: 20px;
 	padding-bottom: 20px;
 	margin-bottom: 30px;
+	margin-top: 0;
 }
 
 #priority-block
@@ -283,6 +284,8 @@ input.task-check:active, .remove-task:active
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	margin-left: 60px;
+	margin-right: 60px;
 }
 
 #add-task-block
@@ -311,3 +314,33 @@ label
 	margin-bottom: 0;
 	margin-top: 14px;
 }
+
+#article-container
+{
+	padding-left: 60px;
+	padding-right: 60px;
+	margin-right: 2px;
+	flex-grow: 1;
+	height: 0;
+	overflow-y: auto;
+}
+
+::-webkit-scrollbar
+{
+	width: 5px;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 6px;
+	background: #112D4E; 
+}
+
+::-webkit-scrollbar-track
+{
+	background: #F9F7F7; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+	opacity: 0.6;
+  }

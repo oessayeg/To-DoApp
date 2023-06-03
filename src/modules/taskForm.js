@@ -3,7 +3,7 @@ import priorityButtonHandler from "./priorityButtons.js";
 
 export default function taskForm(project, projectArray)
 {
-	const article = document.querySelector("article");
+	const article = document.querySelector("#article-container");
 	const taskBlock = document.createElement("div");
 
 	taskBlock.setAttribute("id", "task-block");

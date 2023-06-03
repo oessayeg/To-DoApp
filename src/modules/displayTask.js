@@ -3,7 +3,7 @@ import { displayExcitmentImage } from "./homeDisplay";
 
 export default function displayTask(task, project, projectArray)
 {
-	const article = document.querySelector("article");
+	const article = document.querySelector("#article-container");
 	const taskDiv = document.createElement("div");
 	const checkBox = document.createElement("input");
 	const taskName = document.createElement("h3");

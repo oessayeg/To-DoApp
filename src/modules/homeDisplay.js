@@ -112,22 +112,24 @@ export function toNormalState(homeButtons)
 
 function displayTitle(homeNavTitle)
 {
-	const article = document.querySelector("article");
+	const article = document.querySelector("#article-container");
 	const titleBlock = document.createElement("div");
 	const title = document.createElement("h2");
 	
 	while (article.firstChild)
 		article.firstChild.remove();
+	if (document.querySelector("#title-of-project"))
+		document.querySelector("#title-of-project").remove();	
 	titleBlock.id = "title-of-project";
 	title.setAttribute("id", "project-title-show");
 	title.textContent = homeNavTitle;
 	titleBlock.appendChild(title);
-	article.appendChild(titleBlock);
+	document.querySelector("article").insertAdjacentElement('afterbegin', titleBlock);
 }
 
 export function displayExcitmentImage()
 {
-	const article = document.querySelector("article");
+	const article = document.querySelector("#article-container");
 	const imageToAdd = document.createElement("img");
 	const excitedBlock = document.createElement("div");
 	const title = document.createElement("h3");
