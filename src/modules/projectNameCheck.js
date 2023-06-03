@@ -1,6 +1,6 @@
 export default function isProjectNameEmpty(inputField)
 {
-	if (!inputField.value)
+	if (!inputField.value || inputField.value.replace(/\s/g, '').length == 0)
 	{
 		const warning = document.createElement("p");
 		const block = document.querySelector("#project-creator").firstChild;
@@ -8,7 +8,7 @@ export default function isProjectNameEmpty(inputField)
 		if (!document.querySelector("#project-name-warning"))
 		{
 			warning.id = "project-name-warning";
-			warning.textContent = "Please enter a name";
+			warning.textContent = "Please specify a name";
 			warning.style.color = "red";
 			warning.style.textAlign = "left";
 			warning.style.margin = "0";

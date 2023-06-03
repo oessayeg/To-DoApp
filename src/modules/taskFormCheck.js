@@ -6,7 +6,7 @@ export default function isEmpty()
 	if (document.querySelector(".task-warning") || document.querySelector(".date-warning")
 		|| document.querySelector(".priority-warning"))
 		return true;
-	else if (!taskName.value)
+	else if (!taskName.value || taskName.value.replace(/\s/g, '').length == 0)
 	{
 		const warning = document.createElement("p");
 		const titleBlock = document.querySelector("#title-block");
