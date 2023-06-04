@@ -29,10 +29,18 @@ let obj = [
 	{
 		name: "House cleaning",
 		tasks: [
-			 {name: "Take out the trash.", dueDate: "2023-06-25", priority: "High", isChecked: false},
+			{name: "Take out the trash.", dueDate: "2023-06-25", priority: "High", isChecked: false},
 			{name: "Clean the dishes.", dueDate: "2023-06-25", priority: "High", isChecked: true},
-			{name: "Clean the toilet.", dueDate: "2023-06-25", priority: "High", isChecked: false},
-			{name: "Buy toilet paper.", dueDate: "2023-06-25", priority: "High", isChecked: false}
+			{name: "Clean the toilet.", dueDate: "2023-06-25", priority: "High", isChecked: false}
+		]
+	},
+	{
+		name: "Things to buy",
+		tasks: [
+			{name: "Carrots", dueDate: "2023-07-15", priority: "Medium", isChecked: true},
+			{name: "Watermelon", dueDate: "2023-07-15", priority: "Low", isChecked: true},
+			{name: "Sandals", dueDate: "2023-07-15", priority: "Medium", isChecked: false},
+			{name: "Toilet paper.", dueDate: "2023-07-15", priority: "Low", isChecked: true},
 		]
 	}
 ]
