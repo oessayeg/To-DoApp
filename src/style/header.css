@@ -15,7 +15,11 @@ header
 
 #hide-nav:hover
 {
-	transform: scale(1.20);
+	/* transform: scale(1.10); */
+	background-color: #eff1f5;
+	border-radius: 13px;
+	padding: 8px;
+	margin-left : 32px;
 	cursor: pointer;
 }
 
