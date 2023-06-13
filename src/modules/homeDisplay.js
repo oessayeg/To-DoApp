@@ -139,7 +139,7 @@ export function displayExcitmentImage()
 	excitedBlock.id = "excited-vector";
 	imageToAdd.src = excitedImage;
 	imageToAdd.style.width = "490px";
-	imageToAdd.style.height = "490px";
+	imageToAdd.style.height = "450px";
 	excitedBlock.appendChild(title);
 	excitedBlock.appendChild(imageToAdd);
 	article.appendChild(excitedBlock);
