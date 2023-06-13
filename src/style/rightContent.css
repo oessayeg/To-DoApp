@@ -112,6 +112,7 @@
 #task-button
 {
 	color: #112D4E;
+	transition: all 0.5s;
 }
 
 #task-button:hover
@@ -130,6 +131,7 @@
 	border: 1px solid #DBE2EF;
 	box-sizing: border-box;
 	margin-top: 10px;
+	transition: transform 0.7s;
 }
 
 #task-checkbox

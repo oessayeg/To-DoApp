@@ -75,6 +75,7 @@ nav
 	padding-left: 22px;
 	height: 35px;
 	margin-right: 15px;
+	transition: all 0.5s;
 }
 
 #project-name-icon:active
@@ -118,9 +119,14 @@ nav
 	color: #112D4E;
 }
 
+#Home > div
+{
+	transition: all 0.5s;
+}
+
 #Home > div:hover
 {
-	transform: scale(1.18);
+	transform: scale(1.17);
 	cursor: pointer;
 	padding-left: 38px;
 }
@@ -139,6 +145,7 @@ nav
 	height: 35px;
     margin-top: 6px;
 	width: 60%;
+	transition: all 0.5s;
 }
 
 #add-button-icon:hover
