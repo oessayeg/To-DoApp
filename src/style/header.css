@@ -6,17 +6,19 @@ header
 	margin: 0;
 	border-bottom: 2px solid #112D4E;
 	color: #112D4E;
+	transition: all 0.7s;
 }
 
 #hide-nav
 {
 	margin-left: 40px;
+	transition-duration: 700ms;
+	transition-property: transform;
 }
 
 #hide-nav:hover
 {
-	/* transform: scale(1.10); */
-	background-color: #eff1f5;
+	background-color: #ececec;
 	border-radius: 13px;
 	padding: 8px;
 	margin-left : 32px;
