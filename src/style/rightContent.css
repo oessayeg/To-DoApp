@@ -199,6 +199,7 @@ input.task-check:active, .remove-task:active
 	color: white;
 	border-radius: 5px;
 	border: none;
+	transition: opacity 0.5s;
 }
 
 #add-task-button
@@ -206,7 +207,8 @@ input.task-check:active, .remove-task:active
 	background-color: rgb(0, 158, 0);
 	color: white;
 	border-radius: 5px;
-	border: none
+	border: none;
+	transition: opacity 0.5s;
 }
 
 #add-cancel-task > button
@@ -217,7 +219,7 @@ input.task-check:active, .remove-task:active
 
 #add-cancel-task > button:hover
 {
-	opacity: 0.8;
+	opacity: 0.7;
 }
 
 #add-cancel-task > button:active
@@ -266,6 +268,12 @@ input.task-check:active, .remove-task:active
 	background-color: #FF0000;
 	color: white;
 }
+
+#low, #medium, #high
+{
+	transition: all 0.5s;
+}
+
 #task:hover
 {
 	transform: scale(1.01);
